@@ -5,7 +5,9 @@ export const TextContainer = styled('div', FormCard, {
   fontSize: '$small',
 
   input: {
-    fontSize: '$xSmall',
+    fontSize: '15px',
+    fontWeight: 'bold',
+    color: '$textColorBlur',
     width: '100%',
     height: '37px',
     padding: '0 10px',

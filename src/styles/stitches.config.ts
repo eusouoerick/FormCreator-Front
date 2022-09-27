@@ -1,6 +1,6 @@
 import { createStitches } from '@stitches/react';
 
-export const { styled, globalCss, getCssText } = createStitches({
+export const { styled, globalCss, getCssText, keyframes } = createStitches({
   theme: {
     colors: {
       primary: '#632ff5',
@@ -27,6 +27,7 @@ export const { styled, globalCss, getCssText } = createStitches({
   },
 });
 
+
 export const GlobalStyles = globalCss({
   '@import': [
     'url("https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap")',
@@ -38,7 +39,17 @@ export const GlobalStyles = globalCss({
     fontFamily: 'Inter',
     boxSizing: 'border-box',
   },
+
   body: {
     background: '$background',
+  },
+});
+
+export const Rotation = keyframes({
+  '0%': {
+    transform: 'rotate(0deg)',
+  },
+  '100%': {
+    transform: 'rotate(360deg)',
   },
 });

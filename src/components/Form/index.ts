@@ -33,18 +33,21 @@ export const Title = styled('div', FormCard, {
     color: '$textColorBlur',
   },
 
-  '.date': {
+  span: {
     fontSize: '$xSmall',
     fontWeight: 'bold',
-    color: '$textColorBlur',
+    color: '$textColorGrey',
     fontStyle: 'italic',
     width: 'max-content',
   },
-
-  variants: {
-    creator: {
-      true: {},
-    },
-  },
 });
 
+export const AlertMessage = styled('span', {
+  fontSize: '$xSmall',
+  fontWeight: 'bold',
+  fontStyle: 'italic',
+  color: '$textColorGrey',
+  margin: '0 auto',
+  width: 'max-content',
+  display: 'block',
+});

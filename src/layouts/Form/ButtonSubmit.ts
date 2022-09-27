@@ -1,6 +1,6 @@
 import { styled } from 'src/styles/stitches.config';
 
-export const Button = styled('button', {
+const Button = styled('button', {
   display: 'block',
   margin: '0 auto',
   padding: '10px',
@@ -18,4 +18,18 @@ export const Button = styled('button', {
   '&:hover': {
     background: '$primaryDark',
   },
+
+  variants: {
+    disabled: {
+      true: {
+        background: '#4e4e4e',
+        borderColor: 'transparent',
+        cursor: 'not-allowed',
+        '&:hover': {
+          background: '#4e4e4e',
+        },
+      },
+    },
+  },
 });
+export default Button;

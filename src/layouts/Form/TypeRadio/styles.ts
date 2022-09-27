@@ -14,9 +14,9 @@ export const OptionsArea = styled('div', {
   padding: '0 10px',
 
   label: {
+    width: 'max-content',
     fontSize: '$small',
     position: 'relative',
-    display: 'inline-flex',
     cursor: 'pointer',
 
     span: {
@@ -24,19 +24,21 @@ export const OptionsArea = styled('div', {
     },
   },
 
-  'input[type="radio"]': {
-    display: 'none',
-  },
+  // 'input[type="radio"]': {
+  //   // display: 'none',
+  // },
 });
 
 export const InputRadio = styled('button', {
   position: 'absolute',
+  color: '$textColorBlur',
   top: '2px',
   width: '18px',
   height: '18px',
   borderRadius: '999px',
   background: '$inputBackground',
   border: 'solid 1px $inputBorder',
+  cursor: 'pointer',
 
   variants: {
     checked: {
