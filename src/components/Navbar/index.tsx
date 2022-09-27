@@ -1,15 +1,22 @@
-import Link from 'next/link';
+import { useRouter } from 'next/router';
 import * as S from './styles';
 
-const Navbar = () => {
+const Navbar = ({ page }: { page: 'questions' | 'answers' }) => {
+  const { query } = useRouter();
+
   return (
     <S.Container>
       <S.Logo>LOGO</S.Logo>
       <S.Buttons>
-        <S.StyledLink href='#' checked>
+        <S.StyledLink href={`/forms/${query.slug}`} checked={page === 'questions'}>
           Questions
         </S.StyledLink>
-        <S.StyledLink href='#'>Answers</S.StyledLink>
+        <S.StyledLink
+          href={`/forms/${query.slug}/answers`}
+          checked={page === 'answers'}
+        >
+          Answers
+        </S.StyledLink>
       </S.Buttons>
       <S.UserArea>
         <span>Nome de usuário</span>
