@@ -34,12 +34,20 @@ export const StyledLink = styled('a', Link, {
   cursor: 'pointer',
   textDecoration: 'none',
   color: '$textColor',
+  transition: 'border-color .1s linear',
   borderBottom: 'solid 2px transparent',
+
+  '&:hover': {
+    borderColor: '#dfdfdf',
+  },
 
   variants: {
     checked: {
       true: {
         borderColor: '$primary',
+        '&:hover': {
+          borderColor: '$primary',
+        },
       },
     },
   },
