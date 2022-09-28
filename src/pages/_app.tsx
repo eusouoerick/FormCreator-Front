@@ -1,7 +1,7 @@
-import type { AppProps } from 'next/app';
 import { GlobalStyles } from 'src/styles/stitches.config';
+import { AppPropsWithLayout } from 'src/types';
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   GlobalStyles();
   return (
     <>
