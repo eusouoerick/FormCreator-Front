@@ -13,11 +13,10 @@ export const OptionsArea = styled('div', {
   gap: '17px',
   padding: '0 10px',
 
-  label: {
+  div: {
     width: 'max-content',
     fontSize: '$small',
     position: 'relative',
-    cursor: 'pointer',
 
     span: {
       marginLeft: '27px',

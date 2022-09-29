@@ -15,11 +15,10 @@ const TypeRadio = ({ question, setFormBody }: QuestionProps) => {
       <p style={{ marginBottom: '30px' }}>{question.title}</p>
       <S.OptionsArea>
         {question.inputs?.map((value, i) => (
-          <label key={`rq${question.id}:${i}`} onClick={() => changeValue(i)}>
-            {/* <input type='radio' name={'question:' + question.id} value={i} /> */}
-            <S.InputRadio checked={checked === i} />
+          <div key={`rq${question.id}:${i}`}>
+            <S.InputRadio checked={checked === i} onClick={() => changeValue(i)} />
             <span>{value}</span>
-          </label>
+          </div>
         ))}
       </S.OptionsArea>
     </S.RadioContainer>

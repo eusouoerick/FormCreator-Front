@@ -30,7 +30,7 @@ export const Buttons = styled('div', {
 
 export const StyledLink = styled('a', Link, {
   padding: '0 0 5px',
-  fontSize: '$small',
+  fontSize: '$xSmall',
   cursor: 'pointer',
   textDecoration: 'none',
   color: '$textColor',

@@ -32,8 +32,7 @@ const useFormBody = () => {
           setBlockForm(true);
           setLoading(false);
         })
-        .catch(() => {
-          setBlockForm(true);
+        .catch((err) => {
           setLoading(false);
         });
     }

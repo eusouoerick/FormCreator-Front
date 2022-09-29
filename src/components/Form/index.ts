@@ -7,10 +7,9 @@ export const CardContainer = styled('div', {
 
 export const FormCard = styled('div', {
   width: '43.75rem',
-  minHeight: '6.25rem',
   height: 'max-content',
   background: '$bgWhite',
-  marginBottom: '20px',
+  marginBottom: '15px',
   borderRadius: '5px',
   border: 'solid 1px #ededed',
   // boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
