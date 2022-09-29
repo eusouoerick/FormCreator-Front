@@ -8,6 +8,7 @@ export type Form = {
   createdBy: number;
   date?: string;
   hash: string;
+  average: number | null;
   answers_length: number;
   questions_length: number;
   value: number;
@@ -30,7 +31,12 @@ export type UsersAnswers = {
   updateAt: string;
   createdBy: number;
   formId: number;
+  value: number | null;
   answers: Answers[];
+  author: {
+    name: string;
+    email: string;
+  };
 };
 
 export type Answers = {
