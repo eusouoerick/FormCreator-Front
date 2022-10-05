@@ -12,10 +12,12 @@ type Props = {
 const AnswerCard = ({ data, setAnswers }: Props) => {
   const { checkIfBool, setValue, value } = useAnswerCard(data, setAnswers);
 
+  const borderColor = checkIfBool ? false : value ? 'green' : 'red';
+
   return (
     <FormCard key={data.id}>
       <p style={{ marginBottom: '30px' }}>{data.question.title}</p>
-      <S.TextAnswer>{data.content}</S.TextAnswer>
+      <S.TextAnswer border={borderColor}>{data.content}</S.TextAnswer>
       <S.DivButtons>
         <S.ConfirmBtn
           color={checkIfBool || !value ? 'red' : 'blur'}

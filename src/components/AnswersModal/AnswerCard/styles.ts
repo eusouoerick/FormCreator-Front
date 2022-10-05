@@ -8,6 +8,20 @@ export const TextAnswer = styled('div', InputText, {
   marginBottom: '25px',
   textAlign: 'justify',
   position: 'relative',
+
+  variants: {
+    border: {
+      red: {
+        borderColor: '#fb9595',
+      },
+      green: {
+        borderColor: 'green',
+      },
+      false: {
+        borderColor: '$inputBorder',
+      },
+    },
+  },
 });
 
 export const DivButtons = styled('div', {
