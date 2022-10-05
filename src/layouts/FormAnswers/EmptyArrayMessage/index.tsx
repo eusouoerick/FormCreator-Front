@@ -1,7 +1,7 @@
 import { FormCard } from 'src/components/Form';
 
 const EmptyArrayMessage = () => {
-  return <FormCard>Este formulário ainda não tem respostas...</FormCard>;
+  return <FormCard>This form has no answers yet...</FormCard>;
 };
 
 export default EmptyArrayMessage;
