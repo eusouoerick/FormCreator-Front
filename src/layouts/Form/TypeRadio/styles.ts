@@ -1,11 +1,4 @@
 import { styled } from 'src/styles/stitches.config';
-import { FormCard } from 'src/components/Form';
-
-export const RadioContainer = styled('div', FormCard, {
-  p: {
-    fontSize: '$small',
-  },
-});
 
 export const OptionsArea = styled('div', {
   display: 'flex',

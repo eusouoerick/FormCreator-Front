@@ -1,12 +1,12 @@
 import type { Form } from 'src/types';
 import { format } from 'date-fns';
-import useFormBody from 'src/hooks/useFormBody';
+import useFormBody from './useFormBody';
 
 import Navbar from 'src/components/Navbar';
 import * as S from 'src/components/Form';
 import TypeText from 'src/layouts/Form/TypeText';
 import TypeRadio from './TypeRadio';
-import ButtonSubmit from './ButtonSubmit';
+import ButtonSubmit from '../../components/ButtonSubmit';
 import Loading from 'src/components/Loading';
 
 const FormByHash = ({ data }: { data: Form }) => {
@@ -37,24 +37,20 @@ const FormByHash = ({ data }: { data: Form }) => {
           </S.AlertMessage>
         ) : (
           <>
-            {data.questions?.map((item) => {
-              if (item.type === 'text') {
-                return (
-                  <TypeText key={item.id} question={item} setFormBody={setFormBody} />
-                );
-              } else if (item.type === 'select') {
-                return (
-                  <TypeRadio key={item.id} question={item} setFormBody={setFormBody} />
-                );
-              }
-            })}
+            {data.questions?.map((item) =>
+              item.type === 'text' ? (
+                <TypeText key={item.id} question={item} setFormBody={setFormBody} />
+              ) : (
+                <TypeRadio key={item.id} question={item} setFormBody={setFormBody} />
+              )
+            )}
 
-            {!loading ? (
+            {loading ? (
+              <Loading />
+            ) : (
               <ButtonSubmit onClick={sendForm} disabled={blockForm}>
                 Submit
               </ButtonSubmit>
-            ) : (
-              <Loading />
             )}
           </>
         )}

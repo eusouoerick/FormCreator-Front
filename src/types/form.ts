@@ -1,5 +1,5 @@
 export type Form = {
-  id: number;
+  id: string;
   userBlocked: boolean;
   createdAt: string;
   updateAt: string;
@@ -17,8 +17,8 @@ export type Form = {
 };
 
 export type Question = {
-  id: number;
-  formId: number;
+  id: string;
+  formId: string;
   type: string;
   title: string;
   inputs: string[];
@@ -26,11 +26,11 @@ export type Question = {
 };
 
 export type UsersAnswers = {
-  id: number;
+  id: string;
   createdAt: string;
   updateAt: string;
   createdBy: number;
-  formId: number;
+  formId: string;
   value: number | null;
   answers: Answers[];
   author: {
@@ -40,10 +40,14 @@ export type UsersAnswers = {
 };
 
 export type Answers = {
-  id: number;
+  id: string;
   createdAt: string;
-  user_answerId: number;
-  questionId: number;
+  user_answerId: string;
+  questionId: string;
   content: string;
-  isCorrect?: boolean;
+  isCorrect: boolean | null;
+  question: {
+    title: string;
+    type: string;
+  };
 };

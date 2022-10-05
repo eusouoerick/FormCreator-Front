@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import type { QuestionProps } from 'src/types';
 import * as S from './styles';
+import { FormCard } from 'src/components/Form';
 
 const TypeRadio = ({ question, setFormBody }: QuestionProps) => {
   const [checked, setChecked] = useState<number>();
@@ -11,7 +12,7 @@ const TypeRadio = ({ question, setFormBody }: QuestionProps) => {
   };
 
   return (
-    <S.RadioContainer>
+    <FormCard>
       <p style={{ marginBottom: '30px' }}>{question.title}</p>
       <S.OptionsArea>
         {question.inputs?.map((value, i) => (
@@ -21,8 +22,8 @@ const TypeRadio = ({ question, setFormBody }: QuestionProps) => {
           </div>
         ))}
       </S.OptionsArea>
-    </S.RadioContainer>
+    </FormCard>
   );
 };
 
-export default TypeRadio;
+export default memo(TypeRadio);

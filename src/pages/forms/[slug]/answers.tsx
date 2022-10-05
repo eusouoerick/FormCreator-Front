@@ -1,26 +1,20 @@
-import axios from 'src/api';
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import useGetFormData from 'src/hooks/useGetFormData';
 import type { FormAnswers } from 'src/types';
 
+import { AnswersProvider } from 'src/context/AnswersContext';
 import AnswersLayout from 'src/layouts/FormAnswers';
+import LoadingPage from 'src/layouts/LoadingPage';
 
 const FormAnswersPage = () => {
-  const { query } = useRouter();
-  const [loading, setLoading] = useState<boolean>(true);
-  const [data, setData] = useState<FormAnswers | any>({});
+  const { data, loading, error } = useGetFormData<FormAnswers>(true);
 
-  useEffect(() => {
-    if (query.slug) {
-      axios.get(`forms/${query.slug}/answers`).then((res) => {
-        setData(res.data);
-        setLoading(false);
-      });
-    }
-  }, [query.slug]);
-
-  if (loading) return <h1>Carregando</h1>;
-  return <AnswersLayout data={data} />;
+  if (loading) return <LoadingPage />;
+  if (error) return <h1>{error}</h1>;
+  return (
+    <AnswersProvider data={data}>
+      <AnswersLayout />
+    </AnswersProvider>
+  );
 };
 
 export default FormAnswersPage;

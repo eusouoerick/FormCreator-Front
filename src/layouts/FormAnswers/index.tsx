@@ -1,18 +1,27 @@
-import type { FormAnswers } from 'src/types';
+import { useAnswersContext } from 'src/context/AnswersContext';
 
 import Navbar from 'src/components/Navbar';
 import * as S from 'src/components/Form';
 import Header from './Header';
 import AnswerCard from './AnswerCard';
+import EmptyArrayMessage from './EmptyArrayMessage';
 
-const AnswersLayout = ({ data }: { data: FormAnswers }) => {
+const AnswersLayout = () => {
+  const { answersState } = useAnswersContext();
+
   return (
     <>
       <Navbar page='answers' />
       <S.CardContainer>
-        <Header answersLen={data.answers_length} correctedLen={0} />
-        {data.users_answers.map((item) => (
-          <AnswerCard key={item.id} data={item} average={data.average} />
+        <Header
+          answersLen={answersState.answers_length}
+          correctedLen={answersState.corrected_length}
+        />
+
+        {!answersState.users_answers.length && <EmptyArrayMessage />}
+
+        {answersState.users_answers.map((item) => (
+          <AnswerCard key={item.id} data={item} average={answersState.average} />
         ))}
       </S.CardContainer>
     </>

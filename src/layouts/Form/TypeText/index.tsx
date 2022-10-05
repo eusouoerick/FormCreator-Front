@@ -1,5 +1,7 @@
+import { memo } from 'react';
+
 import type { QuestionProps } from 'src/types';
-import * as S from './styles';
+import { InputText, FormCard } from 'src/components/Form';
 
 const TypeText = ({ question, setFormBody }: QuestionProps) => {
   //
@@ -8,15 +10,15 @@ const TypeText = ({ question, setFormBody }: QuestionProps) => {
   };
 
   return (
-    <S.TextContainer>
+    <FormCard>
       <p style={{ marginBottom: '30px' }}>{question.title}</p>
-      <input
+      <InputText
         type='text'
         placeholder='Responder'
         onChange={(e) => changeValue(e.target.value)}
       />
-    </S.TextContainer>
+    </FormCard>
   );
 };
 
-export default TypeText;
+export default memo(TypeText);

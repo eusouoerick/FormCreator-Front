@@ -1,4 +1,4 @@
 export type CreateAnswer = {
-  questionId: number;
+  questionId: string;
   content: string | undefined;
 };

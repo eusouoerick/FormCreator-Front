@@ -1,9 +1,10 @@
 import { UsersAnswers } from './form';
 
 export type FormAnswers = {
-  id: number;
+  id: string;
   answers_length: number;
   questions_length: number;
+  corrected_length: number;
   value: number | null;
   average: number | null;
   user: {
