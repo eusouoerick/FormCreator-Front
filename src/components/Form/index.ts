@@ -19,7 +19,6 @@ export const FormCard = styled('div', {
 });
 
 export const Title = styled('div', FormCard, {
-
   'div.texts': {
     marginBottom: '20px',
   },
@@ -54,15 +53,16 @@ export const AlertMessage = styled('span', {
   display: 'block',
 });
 
-export const InputText = styled('input', {
+export const InputText = styled('textarea', {
   fontSize: '15px',
   fontWeight: 'bold',
   color: '$textColorBlur',
-  width: '100%',
-  height: '37px',
-  padding: '0 10px',
+  minWidth: '100%',
+  maxWidth: '100%',
+  minHeight: '80px',
+  height: '80px',
+  padding: '10px',
   background: '$inputBackground',
   border: 'solid 1px $inputBorder',
   borderRadius: '5px',
 });
-
