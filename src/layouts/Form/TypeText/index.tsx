@@ -1,4 +1,5 @@
 import { memo } from 'react';
+import { autoResize } from 'src/script';
 
 import type { QuestionProps } from 'src/types';
 import { InputText, FormCard } from 'src/components/Form';
@@ -13,7 +14,10 @@ const TypeText = ({ question, setFormBody }: QuestionProps) => {
       <p style={{ marginBottom: '30px' }}>{question.title}</p>
       <InputText
         placeholder='Responder'
-        onChange={(e) => changeValue(e.target.value)}
+        onChange={(e) => {
+          changeValue(e.target.value);
+          autoResize(e);
+        }}
       />
     </FormCard>
   );
