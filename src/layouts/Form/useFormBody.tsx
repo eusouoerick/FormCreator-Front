@@ -1,4 +1,4 @@
-import axios from 'src/api';
+import { AxiosApi, ThrowToastError } from 'src/services';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
@@ -28,11 +28,11 @@ const useFormBody = () => {
     if (!blockForm) {
       setLoading(true);
       try {
-        await axios.post(`forms/${query.slug}/answers`, { answers: formBody });
+        await AxiosApi.post(`forms/${query.slug}/answers`, { answers: formBody });
         setBlockForm(true);
-        toast.success('the answers have been sent');
+        toast.success('The answers have been sent');
       } catch (error: any) {
-        toast.error(error.response.data.message[0]);
+        ThrowToastError(error);
       }
       setLoading(false);
     }

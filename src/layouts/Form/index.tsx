@@ -2,6 +2,7 @@ import type { Form } from 'src/types';
 import { format } from 'date-fns';
 import useFormBody from './useFormBody';
 
+import MetaTags from './MetaTags';
 import Navbar from 'src/components/Navbar';
 import * as S from 'src/components/Form';
 import TypeText from 'src/layouts/Form/TypeText';
@@ -14,6 +15,8 @@ const FormByHash = ({ data }: { data: Form }) => {
 
   return (
     <>
+      <MetaTags data={data} />
+
       <Navbar page='questions' />
       <S.CardContainer>
         <S.Title>
@@ -32,9 +35,7 @@ const FormByHash = ({ data }: { data: Form }) => {
         </S.Title>
 
         {data.userBlocked ? (
-          <S.AlertMessage>
-            The user has already responded to the form...
-          </S.AlertMessage>
+          <S.AlertMessage>The user has already responded to the form...</S.AlertMessage>
         ) : (
           <>
             {data.questions?.map((item) =>

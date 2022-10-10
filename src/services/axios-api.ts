@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const api = axios.create({
+export const AxiosApi = axios.create({
   baseURL: String(process.env.NEXT_PUBLIC_API_URL),
   headers: {
     Authorization: 'Bearer ' + String(process.env.NEXT_PUBLIC_TOKEN_TEST),
@@ -8,4 +8,3 @@ const api = axios.create({
   },
 });
 
-export default api;

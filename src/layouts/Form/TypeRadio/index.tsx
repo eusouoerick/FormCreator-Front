@@ -1,7 +1,7 @@
 import { useState, memo } from 'react';
 import type { QuestionProps } from 'src/types';
 import * as S from './styles';
-import { FormCard } from 'src/components/Form';
+import { FormCard, InputRadio } from 'src/components/Form';
 
 const TypeRadio = ({ question, setFormBody }: QuestionProps) => {
   const [checked, setChecked] = useState<number>();
@@ -17,7 +17,7 @@ const TypeRadio = ({ question, setFormBody }: QuestionProps) => {
       <S.OptionsArea>
         {question.inputs?.map((value, i) => (
           <div key={`rq${question.id}:${i}`}>
-            <S.InputRadio checked={checked === i} onClick={() => changeValue(i)} />
+            <InputRadio checked={checked === i} onClick={() => changeValue(i)} />
             <span>{value}</span>
           </div>
         ))}

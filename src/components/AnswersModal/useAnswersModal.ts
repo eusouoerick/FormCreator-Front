@@ -1,4 +1,4 @@
-import axios from 'src/api';
+import { AxiosApi, ThrowToastError } from 'src/services';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import { useAnswersContext } from 'src/context/AnswersContext';
@@ -17,11 +17,11 @@ const useAnswersModal = (answerId: string) => {
   const handleSubmit = async () => {
     setLoading(true);
     try {
-      const { data } = await axios.patch(`forms/${query.slug}/answers`, answers);
+      const { data } = await AxiosApi.patch(`forms/${query.slug}/answers`, answers);
       updateAnswer(answers, data.value, data.increment);
       toast.success('Corrected answers');
     } catch (error: any) {
-      toast.error(error.response.data.message[0]);
+      ThrowToastError(error);
     }
     setLoading(false);
   };

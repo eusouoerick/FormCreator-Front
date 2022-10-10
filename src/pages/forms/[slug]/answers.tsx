@@ -1,7 +1,7 @@
-import useGetFormData from 'src/hooks/useGetFormData';
+import { useGetFormData } from 'src/hooks';
 import type { FormAnswers } from 'src/types';
 
-import { AnswersProvider } from 'src/context/AnswersContext';
+import { AnswersProvider } from 'src/context';
 import AnswersLayout from 'src/layouts/FormAnswers';
 import LoadingPage from 'src/layouts/LoadingPage';
 

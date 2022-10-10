@@ -4,7 +4,7 @@ export const { styled, globalCss, getCssText, keyframes } = createStitches({
   theme: {
     colors: {
       primary: '#632ff5',
-      primaryDark: '#2a078b',
+      primaryDark: '#3308aa',
       textColor: '#000',
       textColorBlur: '#404040',
       textColorGrey: '#7C7C7C',
@@ -30,7 +30,6 @@ export const { styled, globalCss, getCssText, keyframes } = createStitches({
 
 export const GlobalStyles = globalCss({
   '@import': [
-    'url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=optional")',
     'url("https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap")',
   ],
 
@@ -39,6 +38,7 @@ export const GlobalStyles = globalCss({
     padding: 0,
     fontFamily: 'Inter',
     boxSizing: 'border-box',
+    outlineColor: 'grey',
   },
 
   'html, body': {

@@ -21,23 +21,4 @@ export const OptionsArea = styled('div', {
   // },
 });
 
-export const InputRadio = styled('button', {
-  position: 'absolute',
-  color: '$textColorBlur',
-  top: '2px',
-  width: '18px',
-  height: '18px',
-  borderRadius: '999px',
-  background: '$inputBackground',
-  border: 'solid 1px $inputBorder',
-  cursor: 'pointer',
 
-  variants: {
-    checked: {
-      true: {
-        background: '$primary',
-        borderColor: '$primary',
-      },
-    },
-  },
-});

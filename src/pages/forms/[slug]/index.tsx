@@ -1,4 +1,4 @@
-import useGetFormData from 'src/hooks/useGetFormData';
+import { useGetFormData } from 'src/hooks';
 import type { Form } from 'src/types';
 
 import FormByHash from 'src/layouts/Form';

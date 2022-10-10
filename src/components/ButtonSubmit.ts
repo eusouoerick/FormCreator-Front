@@ -13,7 +13,6 @@ const Button = styled('button', {
   letterSpacing: '0.105em',
   background: '$primary',
   border: 'solid 1px $primary',
-  transition: 'background .15s linear',
 
   '&:hover': {
     background: '$primaryDark',

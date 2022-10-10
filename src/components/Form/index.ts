@@ -12,7 +12,7 @@ export const FormCard = styled('div', {
   background: '$bgWhite',
   marginBottom: '15px',
   borderRadius: '5px',
-  border: 'solid 1px #ededed',
+  border: '$border',
   // boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
   padding: '20px',
   position: 'relative',
@@ -67,4 +67,25 @@ export const InputText = styled('textarea', {
   borderRadius: '5px',
   resize: 'none',
   overflow: 'hidden',
+});
+
+export const InputRadio = styled('button', {
+  position: 'absolute',
+  color: '$textColorBlur',
+  top: '2px',
+  width: '18px',
+  height: '18px',
+  borderRadius: '999px',
+  background: '$inputBackground',
+  border: 'solid 1px $inputBorder',
+  cursor: 'pointer',
+
+  variants: {
+    checked: {
+      true: {
+        background: '$primary',
+        borderColor: '$primary',
+      },
+    },
+  },
 });

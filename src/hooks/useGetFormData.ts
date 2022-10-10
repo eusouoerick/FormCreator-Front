@@ -1,8 +1,8 @@
-import axios from 'src/api';
+import { AxiosApi } from 'src/services';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
-function useGetFormData<T>(answers = false) {
+export function useGetFormData<T>(answers = false) {
   const { query } = useRouter();
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
@@ -13,7 +13,7 @@ function useGetFormData<T>(answers = false) {
       (async () => {
         try {
           const path = answers ? '/answers' : '?questions=true';
-          const { data } = await axios.get(`forms/${query.slug}${path}`);
+          const { data } = await AxiosApi.get(`forms/${query.slug}${path}`);
           setData(data);
           setLoading(false);
         } catch (error) {
@@ -30,5 +30,3 @@ function useGetFormData<T>(answers = false) {
     error,
   };
 }
-
-export default useGetFormData;

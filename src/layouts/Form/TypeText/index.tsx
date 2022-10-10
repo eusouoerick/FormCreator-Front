@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { autoResize } from 'src/script';
+import { autoResize } from 'src/services';
 
 import type { QuestionProps } from 'src/types';
 import { InputText, FormCard } from 'src/components/Form';
