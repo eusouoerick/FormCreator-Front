@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
 import { useFormCreator } from 'src/context';
 
-const useFormResponse = () => {
+const useShareForm = (urlParam?: string) => {
   const { response } = useFormCreator();
   const [url, setUrl] = useState<string>('');
   const [showMessage, setShowMessage] = useState<boolean>();
 
   useEffect(() => {
-    setUrl(process.env.NEXT_PUBLIC_BASE_URL + '/forms/' + response?.hash);
-  }, [response]);
+    const param = urlParam || response?.hash
+    setUrl(process.env.NEXT_PUBLIC_BASE_URL + '/forms/' + param);
+  }, [response, urlParam]);
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(url);
@@ -21,4 +22,4 @@ const useFormResponse = () => {
   return { url, copyToClipboard, showMessage };
 };
 
-export default useFormResponse;
+export default useShareForm;

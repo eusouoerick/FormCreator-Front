@@ -7,4 +7,3 @@ export const AxiosApi = axios.create({
     // Authorization: 'Bearer ' + localStorage.getItem('TOKEN'),
   },
 });
-

@@ -1,10 +1,10 @@
 import * as R from 'react-share';
 import { CardContainer, FormCard } from 'src/components/Form';
 import { ShareContainer, LinkBox, BtnCopyLink, CopyMessage } from './styles';
-import useFormResponse from './useFormResponse';
+import useShareForm from './useShareForm';
 
-const FormResponse = () => {
-  const { url, copyToClipboard, showMessage } = useFormResponse();
+const ShareForm = ({ urlParam }: { urlParam?: string }) => {
+  const { url, copyToClipboard, showMessage } = useShareForm(urlParam);
 
   return (
     <CardContainer>
@@ -45,4 +45,4 @@ const FormResponse = () => {
   );
 };
 
-export default FormResponse;
+export default ShareForm;

@@ -2,13 +2,14 @@ import { useFormCreator } from 'src/context';
 
 import Navbar from 'src/components/Navbar';
 import { CardContainer } from 'src/components/Form';
+import ShareForm from 'src/components/ShareForm';
 import HeaderForm from './Header';
 import * as S from './styles';
 import BtnAddQuestion from './BtnAddQuestion';
 import BtnSubmit from './BtnSubmit';
 import Question from './Question';
 import LoadingPage from '../LoadingPage';
-import FormResponse from './FormResponse';
+
 
 const FormCreator = () => {
   const { data, loading, response } = useFormCreator();
@@ -16,8 +17,8 @@ const FormCreator = () => {
   if (response) {
     return (
       <>
-        <Navbar page='dashboard' />
-        <FormResponse />
+        <Navbar />
+        <ShareForm />
       </>
     );
   }
@@ -25,7 +26,7 @@ const FormCreator = () => {
   if (loading) {
     return (
       <>
-        <Navbar page='dashboard' />
+        <Navbar />
         <LoadingPage />;
       </>
     );
@@ -33,7 +34,7 @@ const FormCreator = () => {
 
   return (
     <>
-      <Navbar page='dashboard' />
+      <Navbar />
       <CardContainer>
         <HeaderForm />
 

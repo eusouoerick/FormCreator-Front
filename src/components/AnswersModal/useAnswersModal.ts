@@ -1,11 +1,13 @@
 import { AxiosApi, ThrowToastError } from 'src/services';
+import { useRemoveBodyScroll } from 'src/hooks';
 import { useRouter } from 'next/router';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useAnswersContext } from 'src/context/AnswersContext';
 import toast from 'react-hot-toast';
 import { CorrectAnswers } from 'src/types';
 
 const useAnswersModal = (answerId: string) => {
+  useRemoveBodyScroll();
   const { query } = useRouter();
   const { updateAnswer } = useAnswersContext();
   const [loading, setLoading] = useState(false);
@@ -25,14 +27,6 @@ const useAnswersModal = (answerId: string) => {
     }
     setLoading(false);
   };
-
-  // tira o scroll do body para não quebrar o modal
-  useEffect(() => {
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, []);
 
   return {
     loading,

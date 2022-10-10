@@ -25,7 +25,7 @@ export const Buttons = styled('div', {
   height: '100%',
   display: 'flex',
   alignItems: 'flex-end',
-  gap: '20px',
+  gap: '30px',
 });
 
 export const StyledLink = styled('a', Link, {
@@ -72,5 +72,23 @@ export const UserArea = styled('div', {
     color: '#7C7C7C',
     fontSize: '14px',
     fontStyle: 'italic',
+  },
+});
+
+export const LoginButton = styled('button', {
+  padding: ' 5px 8px',
+  border: 'none',
+  borderRadius: '5px',
+  background: 'transparent',
+  fontSize: '$xSmall',
+  cursor: 'pointer',
+
+  variants: {
+    focus: {
+      true: {
+        border: 'solid 1px $primary',
+        color: '$primary',
+      },
+    },
   },
 });

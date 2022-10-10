@@ -1,29 +1,60 @@
 import { useRouter } from 'next/router';
+import { useState } from 'react';
+import { useUserContext } from 'src/context';
+import ShareModal from './ShareModal';
 import * as S from './styles';
 
-const Navbar = ({ page }: { page: 'questions' | 'answers' | 'dashboard' }) => {
+const Navbar = ({ page }: { page?: 'questions' | 'answers' }) => {
+  const [shareModal, setShareModal] = useState(false);
+  const { user } = useUserContext();
   const { query } = useRouter();
 
   return (
-    <S.Container>
-      <S.Logo>LOGO</S.Logo>
-      <S.Buttons>
-        <S.StyledLink href={`/dashboard`}>Dashboard</S.StyledLink>
-        <S.StyledLink href={`/forms/${query.slug}`} checked={page === 'questions'}>
-          Questions
-        </S.StyledLink>
-        <S.StyledLink
-          href={`/forms/${query.slug}/answers`}
-          checked={page === 'answers'}
-        >
-          Answers
-        </S.StyledLink>
-      </S.Buttons>
-      <S.UserArea>
-        <span>Nome de usuário</span>
-        <span className='id'>#ID</span>
-      </S.UserArea>
-    </S.Container>
+    <>
+      {shareModal && <ShareModal closeModal={setShareModal} slug={String(query.slug)} />}
+
+      <S.Container>
+        <S.Logo>LOGO</S.Logo>
+
+        <S.Buttons>
+          <S.StyledLink href={`/dashboard`}>Dashboard</S.StyledLink>
+          {query.slug && (
+            <>
+              <S.StyledLink href={`/forms/${query.slug}`} checked={page === 'questions'}>
+                Questions
+              </S.StyledLink>
+              <S.StyledLink
+                href={`/forms/${query.slug}/answers`}
+                checked={page === 'answers'}
+              >
+                Answers
+              </S.StyledLink>
+              <S.StyledLink onClick={() => setShareModal(true)}>Share</S.StyledLink>
+            </>
+          )}
+        </S.Buttons>
+
+        {!user && (
+          <S.UserArea
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              minWidth: 'max-content',
+            }}
+          >
+            <S.LoginButton focus={true}>Signin</S.LoginButton>
+            <S.LoginButton>Signup</S.LoginButton>
+          </S.UserArea>
+        )}
+
+        {user && (
+          <S.UserArea>
+            <span>{user?.name}</span>
+            <span className='id'>#{user?.id}</span>
+          </S.UserArea>
+        )}
+      </S.Container>
+    </>
   );
 };
 
