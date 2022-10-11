@@ -14,7 +14,7 @@ const ShareModal = ({ closeModal, slug }: TypeShareMoal) => {
   return (
     <WindowBlur style={{ alignItems: 'center' }} onClick={() => closeModal(false)}>
       <div onClick={(e) => e.stopPropagation()}>
-        <ShareForm urlParam={String(slug)} />
+        <ShareForm urlParam={String(slug)} closeCard={closeModal} />
       </div>
     </WindowBlur>
   );

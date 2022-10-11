@@ -55,3 +55,15 @@ export const CopyMessage = styled('div', {
     borderRight: '10px solid transparent',
   },
 });
+
+export const BtnClose = styled('button', {
+  position: 'absolute',
+  right: '20px',
+  background: 'none',
+  border: 'none',
+  cursor: 'pointer',
+  // color: '#cb3939',
+  color: '$textColorGrey',
+  height: 'max-content',
+  zIndex: '100',
+});

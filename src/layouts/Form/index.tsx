@@ -17,7 +17,8 @@ const FormByHash = ({ data }: { data: Form }) => {
     <>
       <MetaTags data={data} />
 
-      <Navbar page='questions' />
+      <Navbar page='questions' blockUser={data.createdBy} />
+
       <S.CardContainer>
         <S.Title>
           <div className='texts'>

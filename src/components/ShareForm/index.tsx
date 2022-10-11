@@ -1,14 +1,27 @@
 import * as R from 'react-share';
 import { CardContainer, FormCard } from 'src/components/Form';
-import { ShareContainer, LinkBox, BtnCopyLink, CopyMessage } from './styles';
+import { ShareContainer, LinkBox, BtnCopyLink, CopyMessage, BtnClose } from './styles';
 import useShareForm from './useShareForm';
 
-const ShareForm = ({ urlParam }: { urlParam?: string }) => {
+type TypeShareForm = {
+  urlParam?: string;
+  closeCard?: (s?: any) => any;
+};
+
+const ShareForm = ({ urlParam, closeCard }: TypeShareForm) => {
   const { url, copyToClipboard, showMessage } = useShareForm(urlParam);
 
   return (
     <CardContainer>
       <FormCard>
+        {closeCard && (
+          <BtnClose onClick={() => closeCard(false)}>
+            <span className='material-icons' translate='no'>
+              close
+            </span>
+          </BtnClose>
+        )}
+
         <ShareContainer>
           <R.FacebookShareButton url={url}>
             <R.FacebookIcon size={45} style={{ borderRadius: '5px' }} />

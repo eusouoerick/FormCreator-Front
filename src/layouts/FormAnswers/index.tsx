@@ -11,7 +11,7 @@ const AnswersLayout = () => {
 
   return (
     <>
-      <Navbar page='answers' />
+      <Navbar page='answers' blockUser={answersState.createdBy} />
       <S.CardContainer>
         <Header
           answersLen={answersState.answers_length}

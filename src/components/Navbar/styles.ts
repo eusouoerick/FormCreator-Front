@@ -3,12 +3,11 @@ import Link from 'next/link';
 
 export const Container = styled('div', {
   background: '$bgWhite',
-  height: '75px',
+  height: '70px',
   display: 'flex',
   justifyContent: 'center',
   position: 'relative',
   borderBottom: '$border',
-
   alignItems: 'center',
 });
 

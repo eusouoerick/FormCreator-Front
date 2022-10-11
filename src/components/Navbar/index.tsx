@@ -4,7 +4,12 @@ import { useUserContext } from 'src/context';
 import ShareModal from './ShareModal';
 import * as S from './styles';
 
-const Navbar = ({ page }: { page?: 'questions' | 'answers' }) => {
+type TypesNavbar = {
+  page?: 'questions' | 'answers';
+  blockUser?: number;
+};
+
+const Navbar = ({ page, blockUser = 0 }: TypesNavbar) => {
   const [shareModal, setShareModal] = useState(false);
   const { user } = useUserContext();
   const { query } = useRouter();
@@ -23,12 +28,16 @@ const Navbar = ({ page }: { page?: 'questions' | 'answers' }) => {
               <S.StyledLink href={`/forms/${query.slug}`} checked={page === 'questions'}>
                 Questions
               </S.StyledLink>
-              <S.StyledLink
-                href={`/forms/${query.slug}/answers`}
-                checked={page === 'answers'}
-              >
-                Answers
-              </S.StyledLink>
+
+              {blockUser === user?.id && (
+                <S.StyledLink
+                  href={`/forms/${query.slug}/answers`}
+                  checked={page === 'answers'}
+                >
+                  Answers
+                </S.StyledLink>
+              )}
+
               <S.StyledLink onClick={() => setShareModal(true)}>Share</S.StyledLink>
             </>
           )}
