@@ -29,7 +29,12 @@ const DashboardForms = ({}) => {
       <Navbar page='dashboard' />
 
       <CardContainer>
-        <S.LinkToCreator href='/forms'>Criar formulario</S.LinkToCreator>
+        <S.LinkToCreator href='/forms'>
+          Create form
+          <span className='material-icons' translate='no'>
+            add
+          </span>
+        </S.LinkToCreator>
 
         <S.GridTemplate>
           {data!.map((item) => (

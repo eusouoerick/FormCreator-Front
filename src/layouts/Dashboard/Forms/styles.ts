@@ -22,6 +22,10 @@ export const LinkToCreator = styled('a', Link, {
   borderRadius: '5px',
   cursor: 'pointer',
   textDecoration: 'none',
+  display: 'flex',
+  alignItems: 'center',
+  width: 'max-content',
+  gap: '5px',
 
   '&:hover': {
     borderColor: '$primary',
