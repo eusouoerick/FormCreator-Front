@@ -1,11 +1,11 @@
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useUserContext } from 'src/context';
-import ShareModal from './ShareModal';
+import ShareModal from '../ShareModal';
 import * as S from './styles';
 
 type TypesNavbar = {
-  page?: 'questions' | 'answers';
+  page?: 'questions' | 'answers' | 'dashboard' | 'creator';
   blockUser?: number;
 };
 
@@ -22,7 +22,9 @@ const Navbar = ({ page, blockUser = 0 }: TypesNavbar) => {
         <S.Logo>LOGO</S.Logo>
 
         <S.Buttons>
-          <S.StyledLink href={`/dashboard`}>Dashboard</S.StyledLink>
+          <S.StyledLink href='/dashboard' checked={page === 'dashboard'}>
+            Dashboard
+          </S.StyledLink>
           {query.slug && (
             <>
               <S.StyledLink href={`/forms/${query.slug}`} checked={page === 'questions'}>

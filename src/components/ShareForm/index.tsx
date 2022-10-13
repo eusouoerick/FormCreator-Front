@@ -13,7 +13,7 @@ const ShareForm = ({ urlParam, closeCard }: TypeShareForm) => {
 
   return (
     <CardContainer>
-      <FormCard>
+      <FormCard style={{ marginBottom: 0 }}>
         {closeCard && (
           <BtnClose onClick={() => closeCard(false)}>
             <span className='material-icons' translate='no'>

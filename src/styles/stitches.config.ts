@@ -21,9 +21,13 @@ export const { styled, globalCss, getCssText, keyframes } = createStitches({
       small: '18px',
       xSmall: '16px',
     },
+    shadows: {
+      modal:
+        'rgb(255 255 255 / 90%) 0px 1px 0px inset, rgb(0 0 0 / 3%) 0px -1px 0px inset, rgb(0 0 0 / 20%) 0px 1px 3px;',
+    },
   },
   media: {
-    tablet: '(min-width: 720px)',
+    tablet: '(max-width: 720px)',
     desktop: '(min-width: 1280px)',
   },
 });
