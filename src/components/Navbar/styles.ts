@@ -56,7 +56,7 @@ export const UserArea = styled('div', {
   minWidth: 'max-content',
   height: '100%',
   position: 'absolute',
-  right: '40px',
+  right: '20px',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',

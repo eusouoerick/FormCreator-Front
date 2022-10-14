@@ -40,6 +40,7 @@ export function usePagination<T>({ route, page, limit, field, blockFirstPage }: 
   useEffect(() => {
     if ((!page || page === 1) && !blockFirstPage) {
       (async () => {
+        setLoading(true);
         try {
           const url = `${route}?page=${query.page}&limit=${query.limit}`;
           const { data } = await AxiosApi.get(url);

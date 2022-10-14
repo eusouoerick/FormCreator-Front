@@ -26,16 +26,15 @@ const AnswerCard = ({ data, average }: AnswerProps) => {
       <FormCard>
         <S.InfoArea>
           <div style={{ display: 'flex', gap: '10px' }}>
-            <S.UserImage
-            >
+            <S.UserImage>
               <Image
                 src='/user.png'
                 layout='fill'
                 objectPosition='bottom'
                 objectFit='cover'
-                alt=''
-                height={70}
-                width={50}
+                alt='user image'
+                height={60}
+                width={60}
                 quality={100}
               />
             </S.UserImage>
