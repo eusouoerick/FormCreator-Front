@@ -5,6 +5,7 @@ import type { UsersAnswers } from 'src/types';
 import { FormCard } from 'src/components/Form';
 import AnswersModal from 'src/components/AnswersModal';
 import * as S from './syles';
+import Image from 'next/image';
 
 type AnswerProps = {
   data: UsersAnswers;
@@ -24,10 +25,25 @@ const AnswerCard = ({ data, average }: AnswerProps) => {
 
       <FormCard>
         <S.InfoArea>
-          <S.Info>
-            <S.Text primary>{data.author.name}</S.Text>
-            <S.Text>{data.author.email}</S.Text>
-          </S.Info>
+          <div style={{ display: 'flex', gap: '10px' }}>
+            <S.UserImage
+            >
+              <Image
+                src='/user.png'
+                layout='fill'
+                objectPosition='bottom'
+                objectFit='cover'
+                alt=''
+                height={70}
+                width={50}
+                quality={100}
+              />
+            </S.UserImage>
+            <S.Info>
+              <S.Text primary>{data.author.name}</S.Text>
+              <S.Text>{data.author.email}</S.Text>
+            </S.Info>
+          </div>
           <S.Info align='end'>
             {average &&
               (data.value === null ? (

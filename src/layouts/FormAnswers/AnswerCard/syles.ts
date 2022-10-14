@@ -5,6 +5,14 @@ export const InfoArea = styled('div', {
   justifyContent: 'space-between',
 });
 
+export const UserImage = styled('div', {
+  position: 'relative',
+  width: '60px',
+  height: '60px',
+  borderRadius: '5px',
+  overflow: 'hidden',
+});
+
 export const Info = styled('div', {
   display: 'flex',
   flexDirection: 'column',
