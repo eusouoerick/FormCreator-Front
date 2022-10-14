@@ -1,4 +1,5 @@
 import { styled } from 'src/styles/stitches.config';
+import Link from 'next/link';
 
 export const Modal = styled('div', {
   position: 'absolute',
@@ -38,12 +39,16 @@ export const ModalOption = styled('button', {
   },
 });
 
-export const Button = styled('span', {
+export const LinkOption = styled('a', Link, ModalOption, {
+  textDecoration: 'none',
+});
+
+export const Text = styled('span', {
   fontSize: '14px',
   fontWeight: 'bold',
   letterSpacing: '1px',
 });
 
 export const Icon = styled('span', {
-  fontSize: '20px',
+  fontSize: '21px',
 });
