@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useUserContext } from 'src/context';
@@ -46,13 +47,7 @@ const Navbar = ({ page, blockUser = 0 }: TypesNavbar) => {
         </S.Buttons>
 
         {!user && (
-          <S.UserArea
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              minWidth: 'max-content',
-            }}
-          >
+          <S.UserArea style={{}}>
             <S.LoginButton focus={true}>Signin</S.LoginButton>
             <S.LoginButton>Signup</S.LoginButton>
           </S.UserArea>
@@ -60,8 +55,21 @@ const Navbar = ({ page, blockUser = 0 }: TypesNavbar) => {
 
         {user && (
           <S.UserArea>
-            <span>{user?.name}</span>
-            <span className='id'>#{user?.id}</span>
+            <S.UserTextInfo>
+              <span>{user?.name}</span>
+              <span className='id'>#{user?.id}</span>
+            </S.UserTextInfo>
+            <S.UserImage>
+              <Image
+                src='/user.png'
+                objectPosition='bottom'
+                objectFit='cover'
+                alt=''
+                height={50}
+                width={50}
+                quality={100}
+              />
+            </S.UserImage>
           </S.UserArea>
         )}
       </S.Container>

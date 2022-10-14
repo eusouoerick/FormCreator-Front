@@ -53,25 +53,37 @@ export const StyledLink = styled('a', Link, {
 });
 
 export const UserArea = styled('div', {
-  fontSize: '$xSmall',
-  minWidth: '150px',
+  minWidth: 'max-content',
   height: '100%',
   position: 'absolute',
   right: '40px',
   display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: '15px',
+});
+
+export const UserTextInfo = styled('div', {
+  fontWeight: 'bold',
+  fontSize: '$small',
+  display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-end',
-  justifyContent: 'center',
   gap: '5px',
 
-  span: {
-    fontWeight: 'bold',
-  },
   'span.id': {
     color: '#7C7C7C',
-    fontSize: '14px',
+    fontSize: '$xSmall',
     fontStyle: 'italic',
   },
+});
+
+export const UserImage = styled('div', {
+  width: '50px',
+  height: '50px',
+  position: 'relative',
+  borderRadius: '5px',
+  overflow: 'hidden',
 });
 
 export const LoginButton = styled('button', {
