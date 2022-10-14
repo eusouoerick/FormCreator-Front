@@ -62,6 +62,7 @@ const Navbar = ({ page, blockUser = 0 }: TypesNavbar) => {
             <S.UserImage>
               <Image
                 src='/user.png'
+                layout='fill'
                 objectPosition='bottom'
                 objectFit='cover'
                 alt=''
