@@ -6,12 +6,12 @@ import LoadingPage from 'src/layouts/LoadingPage';
 import Pagination from 'src/components/Pagination';
 import * as S from './styles';
 import Card from './Card';
-import usePagination from 'src/hooks/usePagination';
+import { usePagination } from 'src/hooks';
 
 const DashboardForms = ({}) => {
   const { changePage, data, error, loading, removeItemById, page } = usePagination<
     Form[]
-  >('/users/forms', undefined, 9);
+  >({ route: '/users/forms', limit: 9, field: 'forms' });
 
   if (loading) {
     return (

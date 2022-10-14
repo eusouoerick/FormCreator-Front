@@ -3,7 +3,7 @@ import { styled } from 'src/styles/stitches.config';
 
 export const GridTemplate = styled('div', {
   width: '790px',
-  marginTop: '20px',
+  marginTop: '10px',
   display: 'grid',
   justifyContent: 'center',
   gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 250px))',
@@ -16,7 +16,7 @@ export const GridTemplate = styled('div', {
 });
 
 export const LinkToCreator = styled('a', Link, {
-  padding: '8px 10px',
+  padding: '6px 10px',
   background: '$bgWhite',
   border: '$border',
   borderRadius: '5px',

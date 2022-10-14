@@ -1,7 +1,15 @@
 import { useState, useEffect } from 'react';
 import { AxiosApi } from 'src/services';
 
-function usePagination<T>(route: string, page?: number, limit?: number) {
+type Props = {
+  route: string;
+  page?: number;
+  limit?: number;
+  field?: string;
+  blockFirstPage?: boolean;
+};
+
+export function usePagination<T>({ route, page, limit, field, blockFirstPage }: Props) {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
   const [data, setData] = useState<T>();
@@ -30,18 +38,24 @@ function usePagination<T>(route: string, page?: number, limit?: number) {
   };
 
   useEffect(() => {
-    (async () => {
-      try {
-        const url = `${route}?page=${query.page}&limit=${query.limit}`;
-        const { data } = await AxiosApi.get(url);
-        setData(data.forms);
-      } catch (error: any) {
-        console.error(error);
-        setError(error.message);
-      }
-      setLoading(false);
-    })();
-  }, [query, route]);
+    if ((!page || page === 1) && !blockFirstPage) {
+      (async () => {
+        try {
+          const url = `${route}?page=${query.page}&limit=${query.limit}`;
+          const { data } = await AxiosApi.get(url);
+          if (field) {
+            setData(data[field]);
+          } else {
+            setData(data);
+          }
+        } catch (error: any) {
+          console.error(error);
+          setError(error.message);
+        }
+        setLoading(false);
+      })();
+    }
+  }, [blockFirstPage, field, page, query, route]);
 
   return {
     loading,
@@ -52,5 +66,3 @@ function usePagination<T>(route: string, page?: number, limit?: number) {
     page: query.page,
   };
 }
-
-export default usePagination;
