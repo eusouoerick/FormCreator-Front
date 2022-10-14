@@ -11,7 +11,7 @@ type TypesNavbar = {
 
 const Navbar = ({ page, blockUser = 0 }: TypesNavbar) => {
   const [shareModal, setShareModal] = useState(false);
-  const { user } = useUserContext();
+  const { user } = useUserContext({});
   const { query } = useRouter();
 
   return (

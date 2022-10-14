@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { AxiosApi } from 'src/services';
+import { AxiosApi, ThrowToastError } from 'src/services';
 
 type Props = {
   route: string;
@@ -51,6 +51,7 @@ export function usePagination<T>({ route, page, limit, field, blockFirstPage }: 
         } catch (error: any) {
           console.error(error);
           setError(error.message);
+          ThrowToastError(error);
         }
         setLoading(false);
       })();

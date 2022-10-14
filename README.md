@@ -1,6 +1,3 @@
-## Coisas pra fazer
+## Todo
 
-- gerenciar o usuário 
-- dashboard
 - arrumar a data do formulario;
-- tentar otimizar as meta tags

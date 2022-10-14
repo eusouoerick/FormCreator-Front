@@ -2,27 +2,33 @@ import type { Form } from 'src/types';
 
 import { CardContainer } from 'src/components/Form';
 import Navbar from 'src/components/Navbar';
-import LoadingPage from 'src/layouts/LoadingPage';
+import CreatorMessage from './CreatorMessage';
 import Pagination from 'src/components/Pagination';
 import * as S from './styles';
 import Card from './Card';
 import { usePagination } from 'src/hooks';
+import LoadingWithNavbar from 'src/components/LoadingWithNavbar';
 
 const DashboardForms = ({}) => {
   const { changePage, data, error, loading, removeItemById, page } = usePagination<
     Form[]
   >({ route: '/users/forms', limit: 9, field: 'forms' });
 
-  if (loading) {
+  if (loading) return <LoadingWithNavbar />;
+  if (error) return <h1>{error}</h1>;
+
+  if (!data?.length) {
     return (
       <>
-        <Navbar page='dashboard' />
-        <LoadingPage />;
+        <CreatorMessage />
+        {page !== 1 && (
+          <div style={{ margin: '40px auto 0', width: 'max-content' }}>
+            <Pagination page={page} setPage={changePage} />
+          </div>
+        )}
       </>
     );
   }
-
-  if (error) return <h1>{error}</h1>;
 
   return (
     <>

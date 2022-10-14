@@ -8,26 +8,18 @@ import * as S from './styles';
 import BtnAddQuestion from './BtnAddQuestion';
 import BtnSubmit from './BtnSubmit';
 import Question from './Question';
-import LoadingPage from '../LoadingPage';
-
+import LoadingWithNavbar from 'src/components/LoadingWithNavbar';
 
 const FormCreator = () => {
   const { data, loading, response } = useFormCreator();
+
+  if (loading) return <LoadingWithNavbar />;
 
   if (response) {
     return (
       <>
         <Navbar />
         <ShareForm />
-      </>
-    );
-  }
-
-  if (loading) {
-    return (
-      <>
-        <Navbar />
-        <LoadingPage />;
       </>
     );
   }

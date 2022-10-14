@@ -7,7 +7,7 @@ import { CreateAnswer } from 'src/types';
 
 const useFormBody = () => {
   const { query } = useRouter();
-  const { user } = useUserContext();
+  const { user } = useUserContext({});
   const [formBody, setState] = useState<CreateAnswer[]>([]);
   const [blockForm, setBlockForm] = useState<boolean>(!user);
   const [loading, setLoading] = useState<boolean>(false);

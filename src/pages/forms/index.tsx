@@ -4,7 +4,7 @@ import FormCreator from 'src/layouts/FormCreator';
 import LoadingPage from 'src/layouts/LoadingPage';
 
 const CreatorPage = () => {
-  const { userLoading } = useUserContext(true);
+  const { userLoading } = useUserContext({ secret: true });
 
   if (userLoading) return <LoadingPage />;
   return (

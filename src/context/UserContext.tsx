@@ -1,4 +1,4 @@
-import { AxiosApi } from 'src/services';
+import { AxiosApi, ThrowToastError } from 'src/services';
 import { useRouter } from 'next/router';
 import { useState, createContext, useEffect, useContext } from 'react';
 
@@ -31,9 +31,10 @@ export const UserProvider = ({ children }: any) => {
         setUser(data);
       } catch (error) {
         console.error(error);
+        ThrowToastError(error);
       }
-      setUserFetched(true);
       setUserLoading(false);
+      setUserFetched(true);
     })();
   }, []);
 
@@ -44,17 +45,24 @@ export const UserProvider = ({ children }: any) => {
   );
 };
 
-export const useUserContext = (secret?: boolean, redirect?: string) => {
+type HookProps = {
+  secret?: boolean;
+  createdBy?: number;
+  redirect?: string;
+};
+
+export const useUserContext = ({ secret, redirect, createdBy }: HookProps) => {
   const router = useRouter();
   const context = useContext(UserContext);
 
   useEffect(() => {
     if (context.userFetched) {
-      if (!context.user && secret) {
+      const checkUser = createdBy && createdBy !== context.user?.id;
+      if ((!context.user && secret) || checkUser) {
         router.push(redirect || '/');
       }
     }
-  }, [context, redirect, router, secret]);
+  }, [context, createdBy, redirect, router, secret]);
 
   return context;
 };
