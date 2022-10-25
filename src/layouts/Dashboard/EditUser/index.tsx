@@ -60,11 +60,21 @@ const EditUser = () => {
             <div style={{ width: '100%' }}>
               <div style={{ marginBottom: '15px' }}>
                 <S.FieldTitle>Name</S.FieldTitle>
-                <S.InputText type='text' name='name' onChange={handleChangeFormInput} />
+                <S.InputText
+                  type='text'
+                  name='name'
+                  autoComplete='off'
+                  onChange={handleChangeFormInput}
+                />
               </div>
               <div style={{ marginBottom: '15px' }}>
                 <S.FieldTitle>Email</S.FieldTitle>
-                <S.InputText type='text' name='email' onChange={handleChangeFormInput} />
+                <S.InputText
+                  type='text'
+                  name='email'
+                  autoComplete='off'
+                  onChange={handleChangeFormInput}
+                />
               </div>
 
               {changePass && (
@@ -74,6 +84,7 @@ const EditUser = () => {
                     <S.InputText
                       type='text'
                       name='currentPassword'
+                      autoComplete='off'
                       onChange={handleChangeFormInput}
                     />
                   </div>
@@ -83,6 +94,7 @@ const EditUser = () => {
                       <S.InputText
                         type='text'
                         name='newPassword'
+                        autoComplete='off'
                         onChange={handleChangeFormInput}
                         focus
                       />
