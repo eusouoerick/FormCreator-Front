@@ -28,14 +28,16 @@ const Navbar = ({ page, blockUser = 0 }: TypesNavbar) => {
           </S.StyledLink>
 
           {(page === 'dashboard' || page === 'edit') && (
-            <S.StyledLink href='/dashboard' checked={page === 'edit'}>
+            <S.StyledLink href='/dashboard/edit-user' checked={page === 'edit'}>
               Edit user
             </S.StyledLink>
           )}
 
           {query.slug && (
             <>
-              <S.StyledLink href={``}>Questions</S.StyledLink>
+              <S.StyledLink href={`/forms/${query.slug}`} checked={page === 'questions'}>
+                Questions
+              </S.StyledLink>
 
               {blockUser === user?.id && (
                 <S.StyledLink
@@ -52,7 +54,7 @@ const Navbar = ({ page, blockUser = 0 }: TypesNavbar) => {
         </S.Buttons>
 
         {!user && (
-          <S.UserArea style={{}}>
+          <S.UserArea style={{ gap: '10px' }}>
             <S.LoginButton focus={true}>Signin</S.LoginButton>
             <S.LoginButton>Signup</S.LoginButton>
           </S.UserArea>

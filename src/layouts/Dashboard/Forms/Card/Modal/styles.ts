@@ -20,7 +20,7 @@ export const ModalOption = styled('button', {
   cursor: 'pointer',
   border: 'none',
   background: 'none',
-  color: '#000',
+  color: '$textColor',
 
   '&:hover': {
     background: '#efefef',

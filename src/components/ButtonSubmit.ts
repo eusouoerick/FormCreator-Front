@@ -3,7 +3,7 @@ import { styled } from 'src/styles/stitches.config';
 const Button = styled('button', {
   display: 'block',
   margin: '0 auto',
-  padding: '10px',
+  padding: '8px 10px',
   height: 'max-content',
   width: '12.5rem',
   cursor: 'pointer',
