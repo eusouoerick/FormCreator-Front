@@ -52,18 +52,30 @@ export const StyledLink = styled('a', Link, {
   },
 });
 
-export const UserArea = styled('div', {
-  minWidth: 'max-content',
-  height: '100%',
+export const UserArea = styled('button', {
+  minWidth: '170px',
+  maxWidth: '190px',
+  height: '34px',
   position: 'absolute',
   right: '20px',
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center',
-  gap: '15px',
+  justifyContent: 'space-between',
+  padding: '1px',
+  gap: '10px',
+  border: '$border',
+  borderRadius: '50px',
+  background: '$inputBackground',
+  cursor: 'pointer',
+
+  '&:hover': {
+    color: '$primary',
+    borderColor: '$primary',
+  },
 });
 
 export const UserTextInfo = styled('div', {
+  color: '$textColor',
   fontWeight: 'bold',
   fontSize: '$small',
   display: 'flex',
@@ -79,11 +91,17 @@ export const UserTextInfo = styled('div', {
 });
 
 export const UserImage = styled('div', {
-  width: '50px',
-  height: '50px',
+  width: '30px',
+  height: '30px',
   position: 'relative',
-  borderRadius: '5px',
+  borderRadius: '50%',
   overflow: 'hidden',
+});
+
+export const UserName = styled('span', {
+  color: '$textColor',
+  fontSize: '14px',
+  fontWeight: 'bold',
 });
 
 export const LoginButton = styled('button', {

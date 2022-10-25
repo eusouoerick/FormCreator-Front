@@ -5,7 +5,6 @@ export const GridTemplate = styled('div', {
   width: '790px',
   marginTop: '10px',
   display: 'grid',
-  justifyContent: 'center',
   gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 250px))',
   gridAutoRows: 'minmax(290px, 290px)',
   gap: '20px',

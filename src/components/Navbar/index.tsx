@@ -2,6 +2,8 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useUserContext } from 'src/context';
+
+import NavModal from './NavModal';
 import ShareModal from '../ShareModal';
 import * as S from './styles';
 
@@ -11,6 +13,7 @@ type TypesNavbar = {
 };
 
 const Navbar = ({ page, blockUser = 0 }: TypesNavbar) => {
+  const [toggleNavModal, setToggleNavModal] = useState<boolean>(false);
   const [shareModal, setShareModal] = useState(false);
   const { user } = useUserContext({});
   const { query } = useRouter();
@@ -61,26 +64,23 @@ const Navbar = ({ page, blockUser = 0 }: TypesNavbar) => {
         )}
 
         {user && (
-          <S.UserArea>
-            <S.UserTextInfo>
-              <span>{user?.name.split(' ')[0]}</span>
-              <span className='id'>#{user?.id}</span>
-            </S.UserTextInfo>
+          <S.UserArea onClick={() => setToggleNavModal((state) => !state)}>
+            {toggleNavModal && <NavModal closeModal={setToggleNavModal} />}
             <S.UserImage>
               <Image
                 src='/user.png'
-                layout='fill'
+                layout='fixed'
                 objectPosition='bottom'
                 objectFit='cover'
                 alt='user image'
-                height={50}
-                width={50}
+                height={30}
+                width={30}
                 quality={100}
               />
             </S.UserImage>
-
+            <S.UserName>{user?.name.split(' ')[0].substring(0, 15)}</S.UserName>
             <span className='material-icons' translate='no'>
-              logout
+              expand_more
             </span>
           </S.UserArea>
         )}
