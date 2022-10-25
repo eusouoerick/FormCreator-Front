@@ -1,9 +1,11 @@
+import { useUserContext } from 'src/context';
 import { useState } from 'react';
 import { AxiosApi } from 'src/services';
 import toast from 'react-hot-toast';
 import { ThrowToastError } from 'src/services';
 
 function useEditUser(imageRef: any) {
+  const { setUser } = useUserContext({ secret: true });
   const [changePass, setChangePass] = useState(false);
   const [form, setForm] = useState({
     image: '',
@@ -38,7 +40,10 @@ function useEditUser(imageRef: any) {
         'Content-Type': `multipart/form-data`,
       },
     })
-      .then(() => toast.success('Success'))
+      .then(({ data }) => {
+        setUser(data);
+        toast.success('Success');
+      })
       .catch((error) => {
         console.error(error);
         ThrowToastError(error);

@@ -1,6 +1,13 @@
 import { AxiosApi, ThrowToastError } from 'src/services';
 import { useRouter } from 'next/router';
-import { useState, createContext, useEffect, useContext } from 'react';
+import {
+  useState,
+  createContext,
+  useEffect,
+  useContext,
+  Dispatch,
+  SetStateAction,
+} from 'react';
 
 type User = {
   id: number;
@@ -15,12 +22,14 @@ type TypeUserContext = {
   user: User | undefined;
   userLoading: boolean;
   userFetched: boolean;
+  setUser: Dispatch<SetStateAction<User | undefined>>;
+  setUserLoading: any;
 };
 
 export const UserContext = createContext({} as TypeUserContext);
 
 export const UserProvider = ({ children }: any) => {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState<User>();
   const [userLoading, setUserLoading] = useState(true);
   const [userFetched, setUserFetched] = useState<boolean>(false);
 
@@ -31,15 +40,16 @@ export const UserProvider = ({ children }: any) => {
         setUser(data);
       } catch (error) {
         console.error(error);
-        ThrowToastError(error);
+        // ThrowToastError(error);
       }
-      setUserLoading(false);
       setUserFetched(true);
     })();
   }, []);
 
   return (
-    <UserContext.Provider value={{ user, userLoading, userFetched }}>
+    <UserContext.Provider
+      value={{ user, setUser, userLoading, userFetched, setUserLoading }}
+    >
       {children}
     </UserContext.Provider>
   );
@@ -56,12 +66,15 @@ export const useUserContext = ({ secret, redirect, createdBy }: HookProps) => {
   const context = useContext(UserContext);
 
   useEffect(() => {
-    if (context.userFetched) {
-      const checkUser = createdBy && createdBy !== context.user?.id;
-      if ((!context.user && secret) || checkUser) {
-        router.push(redirect || '/');
+    (async () => {
+      if (context.userFetched) {
+        const checkUser = createdBy && createdBy !== context.user?.id;
+        if ((!context.user && secret) || checkUser) {
+          await router.push(redirect || '/');
+        }
+        context.setUserLoading(false);
       }
-    }
+    })();
   }, [context, createdBy, redirect, router, secret]);
 
   return context;
