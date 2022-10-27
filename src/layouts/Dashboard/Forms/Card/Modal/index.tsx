@@ -25,36 +25,21 @@ const ModalFormCard = ({ data, closeModal, removeItemById }: Props) => {
       {toggleShare && <ShareModal slug={data.hash} closeModal={setToggleShare} />}
 
       <S.ModalOption onClick={deleteForm} dark={deleteAlert}>
-        <S.Icon
-          className='material-icons'
-          css={{ color: deleteAlert ? 'yellow' : 'black' }}
-          translate='no'
-        >
-          {deleteAlert ? 'error' : 'delete'}
-        </S.Icon>
         <S.Text css={{ color: deleteAlert ? 'yellow' : 'red' }}>
           {deleteAlert ? 'Click to confirm' : 'Delete'}
         </S.Text>
       </S.ModalOption>
 
       <S.ModalOption onClick={() => setToggleShare(true)}>
-        <S.Icon className='material-icons' translate='no'>
-          share
-        </S.Icon>
         <S.Text>Share</S.Text>
       </S.ModalOption>
 
       <S.LinkOption href={`/forms/${data.hash}/answers`}>
-        <S.Icon className='material-icons' translate='no'>
-          chat_bubble
-        </S.Icon>
+        
         <S.Text>See answers</S.Text>
       </S.LinkOption>
 
       <S.ModalOption onClick={openNewTab}>
-        <S.Icon className='material-icons' translate='no'>
-          open_in_new
-        </S.Icon>
         <S.Text>Open in new tab</S.Text>
       </S.ModalOption>
     </S.Modal>

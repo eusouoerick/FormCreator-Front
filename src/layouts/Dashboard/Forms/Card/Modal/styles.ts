@@ -12,7 +12,7 @@ export const Modal = styled('div', {
 });
 
 export const ModalOption = styled('button', {
-  padding: '10px',
+  padding: '10px 15px',
   display: 'flex',
   alignItems: 'center',
   gap: '20px',
