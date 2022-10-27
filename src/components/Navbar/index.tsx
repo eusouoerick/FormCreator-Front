@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useUserContext } from 'src/context';
 
+import AuthBtns from '../AuthBtns';
 import NavModal from './NavModal';
 import ShareModal from '../ShareModal';
 import * as S from './styles';
@@ -10,9 +11,10 @@ import * as S from './styles';
 type TypesNavbar = {
   page?: 'questions' | 'answers' | 'dashboard' | 'creator' | 'edit';
   blockUser?: number;
+  redirect?: string;
 };
 
-const Navbar = ({ page, blockUser = 0 }: TypesNavbar) => {
+const Navbar = ({ page, redirect, blockUser = 0 }: TypesNavbar) => {
   const [toggleNavModal, setToggleNavModal] = useState<boolean>(false);
   const [shareModal, setShareModal] = useState(false);
   const { user } = useUserContext({});
@@ -56,12 +58,7 @@ const Navbar = ({ page, blockUser = 0 }: TypesNavbar) => {
           )}
         </S.Buttons>
 
-        {!user && (
-          <S.UserArea style={{ gap: '10px' }}>
-            <S.LoginButton focus={true}>Signin</S.LoginButton>
-            <S.LoginButton>Signup</S.LoginButton>
-          </S.UserArea>
-        )}
+        {!user && <AuthBtns redirect={redirect} />}
 
         {user && (
           <S.UserArea onClick={() => setToggleNavModal((state) => !state)}>

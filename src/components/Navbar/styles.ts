@@ -103,21 +103,3 @@ export const UserName = styled('span', {
   fontSize: '14px',
   fontWeight: 'bold',
 });
-
-export const LoginButton = styled('button', {
-  padding: ' 5px 8px',
-  border: 'none',
-  borderRadius: '5px',
-  background: 'transparent',
-  fontSize: '$xSmall',
-  cursor: 'pointer',
-
-  variants: {
-    focus: {
-      true: {
-        border: 'solid 1px $primary',
-        color: '$primary',
-      },
-    },
-  },
-});

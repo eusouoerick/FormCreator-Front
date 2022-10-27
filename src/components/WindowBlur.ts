@@ -12,4 +12,12 @@ export const WindowBlur = styled('div', {
   display: 'flex',
   justifyContent: 'center',
   overflowY: 'auto',
+
+  variants: {
+    center: {
+      true: {
+        alignItems: 'center',
+      },
+    },
+  },
 });
