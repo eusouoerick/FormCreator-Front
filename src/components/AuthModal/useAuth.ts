@@ -29,7 +29,7 @@ const useAuth = (page: boolean, closeModal: any, redirect?: string) => {
     const route = currentPage ? 'signup' : 'signin';
     try {
       const { data } = await AxiosApi.post(`auth/${route}`, form);
-      Cookies.set('ACS_TOKEN', data.token);
+      Cookies.set('ACS_TOKEN', data.token, { expires: 30 });
       toast.success('Success');
       if (redirect) {
         router.push(redirect);
