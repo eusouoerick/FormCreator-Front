@@ -1,4 +1,5 @@
 import { WindowBlur } from '../WindowBlur';
+import { useRouter } from 'next/router';
 import Loading from '../Loading';
 import * as S from './styles';
 import useAuth from './useAuth';
@@ -10,6 +11,7 @@ type TypesAuthModal = {
 };
 
 const AuthModal = ({ page, redirect, closeModal }: TypesAuthModal) => {
+  const router = useRouter();
   const { form, currentPage, loading, togglePage, handleChangeInput, handleSubmit } =
     useAuth(page, closeModal, redirect);
 
@@ -82,7 +84,12 @@ const AuthModal = ({ page, redirect, closeModal }: TypesAuthModal) => {
 
         <div>
           <S.BtnSubmit type='submit'>Submit</S.BtnSubmit>
-          <S.ForgotPassword type='button'>Forgot password?</S.ForgotPassword>
+          <S.ForgotPassword
+            type='button'
+            onClick={() => router.push('/auth/forgot-password?')}
+          >
+            Forgot password?
+          </S.ForgotPassword>
         </div>
       </S.Container>
     </WindowBlur>

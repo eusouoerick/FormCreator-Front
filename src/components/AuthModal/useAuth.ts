@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import { useRemoveBodyScroll } from 'src/hooks';
 import { AxiosApi, ThrowToastError } from 'src/services';
 import Cookies from 'js-cookie';
 import toast from 'react-hot-toast';
 
 const useAuth = (page: boolean, closeModal: any, redirect?: string) => {
+  useRemoveBodyScroll();
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState<boolean>(page || false); // false = login; true = signup
@@ -32,9 +34,9 @@ const useAuth = (page: boolean, closeModal: any, redirect?: string) => {
       if (redirect) {
         router.push(redirect);
       } else {
-        location.reload();
+        // location.reload();
       }
-      closeModal()
+      closeModal();
     } catch (error) {
       ThrowToastError(error);
     }
