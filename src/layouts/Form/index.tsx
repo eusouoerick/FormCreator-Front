@@ -28,7 +28,7 @@ const FormByHash = ({ data }: { data: Form }) => {
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             <span>
               {data.date
-                ? `Valid until ${format(new Date(data.date), 'dd/MM/yyyy')}`
+                ? `Valid until : ${format(new Date(data.date), 'd MMM yyyy')}`
                 : 'No delivery time'}
             </span>
             <span>Value : {data.value}</span>
