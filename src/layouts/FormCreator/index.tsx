@@ -20,6 +20,7 @@ const FormCreator = () => {
       <>
         <Navbar />
         <ShareForm />
+        <S.BtnLink href={`/forms/${response?.hash}`}>See form</S.BtnLink>
       </>
     );
   }

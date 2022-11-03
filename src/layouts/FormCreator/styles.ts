@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { styled } from 'src/styles/stitches.config';
 
 export const InputText = styled('textarea', {
@@ -88,4 +89,15 @@ export const OptionalInput = styled('input', Text, {
   borderRadius: '2px',
   background: '$inputBackground',
   fontStyle: 'initial',
+});
+
+export const BtnLink = styled('a', Link, {
+  display: 'block',
+  width: 'max-content',
+  margin: '0 auto',
+  borderRadius: '5px',
+  padding: '7px 10px',
+  background: '$primary',
+  textDecoration: 'none',
+  color: '$bgWhite',
 });
