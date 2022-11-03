@@ -4,7 +4,7 @@ const Header = ({ showModal }: { showModal: (s: any) => void }) => {
   return (
     <S.Container>
       <S.ContentArea>
-        <S.Logo>LOGO</S.Logo>
+        <S.Logo translate='no'>LOGO</S.Logo>
 
         <S.Nav>
           <S.UlNav>

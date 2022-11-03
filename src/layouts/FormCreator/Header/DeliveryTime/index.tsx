@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { format } from 'date-fns';
 import { useFormCreator } from 'src/context';
 import * as S from '../../styles';
 
@@ -16,6 +17,7 @@ const DeliveryTime = () => {
         <S.Text style={{ marginRight: 5 }}>Deadline </S.Text>
         <S.OptionalInput
           type='date'
+          min={format(new Date(), 'yyyy-MM-dd')}
           value={data.date || ''}
           onChange={(e) =>
             setData((state) => ({

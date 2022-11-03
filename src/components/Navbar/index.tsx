@@ -25,7 +25,7 @@ const Navbar = ({ page, redirect, blockUser = 0 }: TypesNavbar) => {
       {shareModal && <ShareModal closeModal={setShareModal} slug={String(query.slug)} />}
 
       <S.Container>
-        <S.Logo>LOGO</S.Logo>
+        <S.Logo translate='no'>LOGO</S.Logo>
 
         <S.Buttons>
           {user && (

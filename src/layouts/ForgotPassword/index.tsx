@@ -27,7 +27,7 @@ const ForgotPassword = () => {
   return (
     <>
       <S.Container onSubmit={handleSubmit}>
-        <S.Logo>LOGO</S.Logo>
+        <S.Logo translate='no'>LOGO</S.Logo>
         <S.Title>Type your e-mail</S.Title>
         <S.Input type='text' ref={inputRef} />
         <S.Button type='submit' disabled={isDisabled || isLoading}>
