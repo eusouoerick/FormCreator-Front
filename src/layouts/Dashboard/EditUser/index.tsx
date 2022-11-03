@@ -5,8 +5,10 @@ import useEditUser from './useEditUser';
 import Navbar from 'src/components/Navbar';
 import { CardContainer, FormCard } from 'src/components/Form';
 import * as S from './styles';
+import { useUserContext } from 'src/context';
 
 const EditUser = () => {
+  const { user } = useUserContext({});
   const imageRef = useRef<any>(null);
   const [currentImage, setCurrentIamge] = useState<string>();
   const {
@@ -63,6 +65,7 @@ const EditUser = () => {
                 <S.InputText
                   type='text'
                   name='name'
+                  placeholder={user?.name}
                   autoComplete='off'
                   onChange={handleChangeFormInput}
                 />
@@ -72,6 +75,7 @@ const EditUser = () => {
                 <S.InputText
                   type='text'
                   name='email'
+                  placeholder={user?.email}
                   autoComplete='off'
                   onChange={handleChangeFormInput}
                 />
