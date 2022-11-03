@@ -10,14 +10,7 @@ const useNavModal = (closeModal: (cb: boolean) => void) => {
 
   const handleLogout = () => {
     Cookies.remove('ACS_TOKEN');
-    setUser({
-      id: 0,
-      createdAt: 'null',
-      updateAt: 'null',
-      adm: false,
-      email: '',
-      name: '',
-    });
+    setUser(undefined);
     router.push('/');
   };
 

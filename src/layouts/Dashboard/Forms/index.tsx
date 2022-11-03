@@ -15,7 +15,6 @@ const DashboardForms = ({}) => {
   >({ route: '/users/forms', limit: 9, field: 'forms' });
 
   if (loading) return <LoadingWithNavbar />;
-  if (error) return <h1>{error}</h1>;
 
   if (!data?.length) {
     return (

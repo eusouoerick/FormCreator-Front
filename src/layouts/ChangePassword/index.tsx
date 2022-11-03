@@ -16,7 +16,7 @@ const ChangePassword = () => {
     setisLoading(true);
     if (inputRef.current && inputRef.current.value) {
       const value = inputRef.current.value;
-      await AxiosApi.post(`/auth/change-password?token=${query.token}`, {
+      await AxiosApi().post(`/auth/change-password?token=${query.token}`, {
         password: value,
       })
         .then(() => {

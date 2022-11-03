@@ -10,8 +10,8 @@ export const { styled, globalCss, getCssText, keyframes } = createStitches({
       textColorGrey: '#7C7C7C',
       bgWhite: '#F9F9F9',
       border: 'solid 1px #ededed',
-      // background: '#F5F5F5',
-      background: '#f0f0f0',
+      background: '#F5F5F5',
+      // background: '#f0f0f0',
       inputBackground: '#f4f2f2',
       inputBorder: '#d8d8d8',
     },
@@ -43,6 +43,7 @@ export const GlobalStyles = globalCss({
     fontFamily: 'Inter',
     boxSizing: 'border-box',
     outlineColor: 'grey',
+    scrollBehavior: 'smooth',
   },
 
   'html, body': {

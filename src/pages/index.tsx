@@ -1,11 +1,8 @@
-import type { NextPage } from 'next';
+import Home from 'src/layouts/Home';
 
-const Home: NextPage = () => {
-  return (
-    <div>
-      <h1>Hello world</h1>
-    </div>
-  );
+const HomePage = () => {
+  return <Home />;
 };
 
-export default Home;
+
+export default HomePage;

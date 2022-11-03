@@ -43,7 +43,7 @@ export function usePagination<T>({ route, page, limit, field, blockFirstPage }: 
         setLoading(true);
         try {
           const url = `${route}?page=${query.page}&limit=${query.limit}`;
-          const { data } = await AxiosApi.get(url);
+          const { data } = await AxiosApi().get(url);
           if (field) {
             setData(data[field]);
           } else {

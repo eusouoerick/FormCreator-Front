@@ -4,9 +4,11 @@ import { useRemoveBodyScroll } from 'src/hooks';
 import { AxiosApi, ThrowToastError } from 'src/services';
 import Cookies from 'js-cookie';
 import toast from 'react-hot-toast';
+import { useUserContext } from 'src/context';
 
 const useAuth = (page: boolean, closeModal: any, redirect?: string) => {
   useRemoveBodyScroll();
+  const { setUser } = useUserContext({});
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState<boolean>(page || false); // false = login; true = signup
@@ -28,19 +30,21 @@ const useAuth = (page: boolean, closeModal: any, redirect?: string) => {
     setLoading(true);
     const route = currentPage ? 'signup' : 'signin';
     try {
-      const { data } = await AxiosApi.post(`auth/${route}`, form);
+      const { data } = await AxiosApi().post(`auth/${route}`, form);
+      setUser(data.user);
       Cookies.set('ACS_TOKEN', data.token, { expires: 30 });
-      toast.success('Success');
       if (redirect) {
         router.push(redirect);
       } else {
         // location.reload();
       }
       closeModal();
+      setLoading(false);
+      toast.success('Success');
     } catch (error) {
+      setLoading(false);
       ThrowToastError(error);
     }
-    setLoading(false);
   };
 
   return {

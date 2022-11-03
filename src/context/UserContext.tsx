@@ -8,6 +8,7 @@ import {
   Dispatch,
   SetStateAction,
 } from 'react';
+import Cookies from 'js-cookie';
 
 type User = {
   id: number;
@@ -36,10 +37,9 @@ export const UserProvider = ({ children }: any) => {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await AxiosApi.get('users');
+        const { data } = await AxiosApi().get('users');
         setUser(data);
       } catch (error) {
-        console.error(error);
         // ThrowToastError(error);
       }
       setUserFetched(true);

@@ -13,7 +13,7 @@ export function useGetFormData<T>(answers = false) {
       (async () => {
         try {
           const path = answers ? '/answers' : '?questions=true';
-          const { data } = await AxiosApi.get(`forms/${query.slug}${path}`);
+          const { data } = await AxiosApi().get(`forms/${query.slug}${path}`);
           setData(data);
           setLoading(false);
         } catch (error) {

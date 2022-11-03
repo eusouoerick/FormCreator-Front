@@ -14,7 +14,7 @@ const ForgotPassword = () => {
     setisLoading(true);
     if (inputRef.current && inputRef.current.value) {
       const value = inputRef.current.value;
-      await AxiosApi.post('/auth/forgot-password', { email: value })
+      await AxiosApi().post('/auth/forgot-password', { email: value })
         .then(() => {
           setIsDisabled(true);
           toast.success('The email has been sent');

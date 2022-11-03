@@ -30,7 +30,7 @@ const useFormBody = () => {
     if (!blockForm) {
       setLoading(true);
       try {
-        await AxiosApi.post(`forms/${query.slug}/answers`, { answers: formBody });
+        await AxiosApi().post(`forms/${query.slug}/answers`, { answers: formBody });
         setBlockForm(true);
         toast.success('The answers have been sent');
       } catch (error: any) {

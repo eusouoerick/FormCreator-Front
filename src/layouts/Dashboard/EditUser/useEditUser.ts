@@ -35,7 +35,7 @@ function useEditUser(imageRef: any) {
       }
     }
 
-    await AxiosApi.patch('users', formData, {
+    await AxiosApi().patch('users', formData, {
       headers: {
         'Content-Type': `multipart/form-data`,
       },

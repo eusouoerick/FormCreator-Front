@@ -56,6 +56,7 @@ const AuthModal = ({ page, redirect, closeModal }: TypesAuthModal) => {
                   id='name'
                   value={form.name}
                   onChange={handleChangeInput}
+                  autoComplete='on'
                 />
               </div>
             )}
@@ -67,6 +68,7 @@ const AuthModal = ({ page, redirect, closeModal }: TypesAuthModal) => {
                 id='email'
                 value={form.email}
                 onChange={handleChangeInput}
+                autoComplete='on'
               />
             </div>
             <div style={{ position: 'relative' }}>
@@ -77,6 +79,7 @@ const AuthModal = ({ page, redirect, closeModal }: TypesAuthModal) => {
                 id='password'
                 value={form.password}
                 onChange={handleChangeInput}
+                autoComplete='on'
               />
             </div>
           </S.InputsArea>

@@ -6,7 +6,7 @@ import toast from 'react-hot-toast';
  */
 
 export const ThrowToastError = (error: any) => {
-  console.error(error);
+  console.error(error.message);
   let message: string;
   if (Array.isArray(error.response.data.message)) {
     message = error.response.data.message[0];

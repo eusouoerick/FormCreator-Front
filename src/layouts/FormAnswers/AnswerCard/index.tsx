@@ -30,8 +30,8 @@ const AnswerCard = ({ data, average }: AnswerProps) => {
               <Image
                 src='/user.png'
                 layout='fill'
-                objectPosition='bottom'
                 objectFit='cover'
+                objectPosition='bottom'
                 alt='user image'
                 height={60}
                 width={60}

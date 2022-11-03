@@ -14,7 +14,7 @@ const useCardModal = ({ hash, closeModal, removeItemById, formId }: Types) => {
 
   const deleteForm = () => {
     if (deleteAlert) {
-      AxiosApi.delete('/forms/' + hash)
+      AxiosApi().delete('/forms/' + hash)
         .then(() => removeItemById(formId))
         .catch((err: any) => ThrowToastError(err));
     } else {

@@ -19,7 +19,7 @@ const useAnswersModal = (answerId: string) => {
   const handleSubmit = async () => {
     setLoading(true);
     try {
-      const { data } = await AxiosApi.patch(`forms/${query.slug}/answers`, answers);
+      const { data } = await AxiosApi().patch(`forms/${query.slug}/answers`, answers);
       updateAnswer(answers, data.value, data.increment);
       toast.success('Corrected answers');
     } catch (error: any) {

@@ -28,9 +28,11 @@ const Navbar = ({ page, redirect, blockUser = 0 }: TypesNavbar) => {
         <S.Logo>LOGO</S.Logo>
 
         <S.Buttons>
-          <S.StyledLink href='/dashboard' checked={page === 'dashboard'}>
-            Dashboard
-          </S.StyledLink>
+          {user && (
+            <S.StyledLink href='/dashboard' checked={page === 'dashboard'}>
+              Dashboard
+            </S.StyledLink>
+          )}
 
           {(page === 'dashboard' || page === 'edit') && (
             <S.StyledLink href='/dashboard/edit-user' checked={page === 'edit'}>
