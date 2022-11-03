@@ -31,7 +31,7 @@ const FormByHash = ({ data }: { data: Form }) => {
                 ? `Valid until : ${format(new Date(data.date), 'd MMM yyyy')}`
                 : 'No delivery time'}
             </span>
-            <span>Value : {data.value}</span>
+            {data.value ? <span>Value : {data.value}</span> : null}
           </div>
         </S.Title>
 
