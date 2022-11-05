@@ -6,6 +6,7 @@ import AnswersLayout from 'src/layouts/FormAnswers';
 import LoadingPage from 'src/layouts/LoadingPage';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import Head from 'next/head';
 
 const FormAnswersPage = () => {
   const router = useRouter();
@@ -25,12 +26,37 @@ const FormAnswersPage = () => {
     }
   }, [error, router, user]);
 
-  if (loading || userLoading) return <LoadingPage />;
-  if (error) return <LoadingPage />;
+  if (loading || userLoading) {
+    return (
+      <>
+        <Head>
+          <title>Form Creator - Answers</title>
+        </Head>
+        <LoadingPage />
+      </>
+    );
+  }
+
+  if (error) {
+    return (
+      <>
+        <Head>
+          <title>Form Creator - Answers</title>
+        </Head>
+        <LoadingPage />
+      </>
+    );
+  }
+
   return (
-    <AnswersProvider data={data}>
-      <AnswersLayout />
-    </AnswersProvider>
+    <>
+      <Head>
+        <title>Form Creator - Answers</title>
+      </Head>
+      <AnswersProvider data={data}>
+        <AnswersLayout />
+      </AnswersProvider>
+    </>
   );
 };
 

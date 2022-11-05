@@ -19,6 +19,6 @@ export const CardsArea = styled('div', {
     overflowX: 'scroll',
     maxWidth: '100vw',
     gap: '50px',
-    padding: '0 10px'
+    padding: '0 30px'
   },
 });
