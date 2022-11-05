@@ -49,10 +49,17 @@ export const FormCreatorProvider = ({ children }: { children: ReactNode }) => {
         const inputs = item.inputs.map(({ content }) => content);
         return { ...item, inputs };
       });
+      const checkIfQuestionHasType = data.questions.some((item) => !item.type);
+      if (checkIfQuestionHasType) {
+        toast.error('All questions must have a type');
+        setLoading(false);
+        return;
+      }
       const { data: body } = await AxiosApi().post('forms', { ...data, questions });
       setResponse(body);
       toast.success('The form has been created');
     } catch (error: any) {
+      console.log(error);
       ThrowToastError(error);
     }
     setLoading(false);
