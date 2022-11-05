@@ -3,10 +3,10 @@ import { useUserContext } from 'src/context';
 import { useRouter } from 'next/router';
 import { WindowBlur } from 'src/components/WindowBlur';
 import { useLogout } from 'src/hooks';
-import type { Navbar } from 'src/types';
+import type { TypesNavbar } from 'src/types';
 import * as S from './styles';
 
-interface Types extends Navbar {
+interface Types extends TypesNavbar {
   setShareModal: (s: any) => void;
   setIsModalOpen: (a: any) => void;
 }

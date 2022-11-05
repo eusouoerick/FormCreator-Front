@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import type { Navbar } from 'src/types';
+import type { TypesNavbar } from 'src/types';
 import Modal from './Modal';
 import * as S from './styles';
 
-interface Types extends Navbar {
+interface Types extends TypesNavbar {
   setShareModal: (s: any) => void;
 }
 

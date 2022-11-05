@@ -26,6 +26,7 @@ export const LinkToCreator = styled('a', Link, {
   alignItems: 'center',
   width: 'max-content',
   gap: '5px',
+  color: '$textColor',
 
   '&:hover': {
     borderColor: '$primary',

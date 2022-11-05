@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useUserContext } from 'src/context';
-import type { Navbar } from 'src/types';
+import type { TypesNavbar } from 'src/types';
 
 import AuthBtns from '../AuthBtns';
 import NavModal from './NavModal';
@@ -10,7 +10,7 @@ import ShareModal from '../ShareModal';
 import Hamburguer from './Hamburguer';
 import * as S from './styles';
 
-const Navbar = ({ page, redirect, blockUser = 0 }: Navbar) => {
+const Navbar = ({ page, redirect, blockUser = 0 }: TypesNavbar) => {
   const [toggleNavModal, setToggleNavModal] = useState<boolean>(false);
   const [shareModal, setShareModal] = useState(false);
   const { user } = useUserContext({});
