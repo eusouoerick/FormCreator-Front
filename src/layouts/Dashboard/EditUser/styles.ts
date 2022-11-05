@@ -3,6 +3,11 @@ import { styled, keyframes } from 'src/styles/stitches.config';
 export const EditArea = styled('div', {
   display: 'flex',
   gap: '30px',
+
+  '@650': {
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
 });
 
 export const ImageArea = styled('div', {

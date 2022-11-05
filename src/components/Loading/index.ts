@@ -1,5 +1,13 @@
-import { styled } from 'src/styles/stitches.config';
-import { Rotation } from 'src/styles/stitches.config';
+import { keyframes, styled } from 'src/styles/stitches.config';
+
+export const Rotation = keyframes({
+  '0%': {
+    transform: 'rotate(0deg)',
+  },
+  '100%': {
+    transform: 'rotate(360deg)',
+  },
+});
 
 const Loading = styled('span', {
   margin: '20px auto',

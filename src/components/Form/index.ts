@@ -3,6 +3,9 @@ import { styled } from 'src/styles/stitches.config';
 export const CardContainer = styled('div', {
   width: 'max-content',
   margin: '25px auto ',
+  '@720': {
+    width: '100vw',
+  },
 });
 
 export const FormCard = styled('div', {
@@ -16,11 +19,19 @@ export const FormCard = styled('div', {
   // boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
   padding: '20px',
   position: 'relative',
+
+  '@720': {
+    padding: '20px 10px',
+    width: '100%',
+  },
 });
 
 export const Title = styled('div', FormCard, {
   'div.texts': {
     marginBottom: '20px',
+    '@320': {
+      marginBottom: '30px',
+    },
   },
 
   'p.title': {
@@ -40,6 +51,16 @@ export const Title = styled('div', FormCard, {
     color: '$textColorGrey',
     fontStyle: 'italic',
     width: 'max-content',
+  },
+});
+
+export const InfoArea = styled('div', {
+  display: 'flex',
+  justifyContent: 'space-between',
+
+  '@320': {
+    gap: '10px',
+    flexDirection: 'column-reverse',
   },
 });
 

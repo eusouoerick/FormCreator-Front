@@ -69,7 +69,18 @@ const Question = ({ data }: { data: CreatorQuestion }) => {
       </S.DivSpaceBetween>
 
       {data.type === 'text' && (
-        <QuestionTypeText as='div'> Text type question</QuestionTypeText>
+        <QuestionTypeText
+          css={{
+            '@400': {
+              height: '35px',
+              minHeight: '35px',
+              padding: '7px',
+            },
+          }}
+          as='div'
+        >
+          Text type question
+        </QuestionTypeText>
       )}
 
       {data.type === 'select' && (

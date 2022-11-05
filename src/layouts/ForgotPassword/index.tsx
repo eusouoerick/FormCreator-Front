@@ -14,7 +14,8 @@ const ForgotPassword = () => {
     setisLoading(true);
     if (inputRef.current && inputRef.current.value) {
       const value = inputRef.current.value;
-      await AxiosApi().post('/auth/forgot-password', { email: value })
+      await AxiosApi()
+        .post('/auth/forgot-password', { email: value })
         .then(() => {
           setIsDisabled(true);
           toast.success('The email has been sent');
@@ -27,7 +28,9 @@ const ForgotPassword = () => {
   return (
     <>
       <S.Container onSubmit={handleSubmit}>
-        <S.Logo translate='no'>LOGO</S.Logo>
+        <S.Logo href='/' translate='no'>
+          LOGO
+        </S.Logo>
         <S.Title>Type your e-mail</S.Title>
         <S.Input type='text' ref={inputRef} />
         <S.Button type='submit' disabled={isDisabled || isLoading}>

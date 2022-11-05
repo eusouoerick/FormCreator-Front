@@ -6,6 +6,16 @@ export const AuthArea = styled('div', {
   display: 'flex',
   alignItems: 'center',
   gap: '10px',
+
+  variants: {
+    hidden: {
+      true: {
+        '@800': {
+          display: 'none',
+        },
+      },
+    },
+  },
 });
 
 export const LoginButton = styled('button', {

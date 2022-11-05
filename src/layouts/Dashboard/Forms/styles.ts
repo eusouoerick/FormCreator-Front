@@ -9,8 +9,9 @@ export const GridTemplate = styled('div', {
   gridAutoRows: 'minmax(290px, 290px)',
   gap: '20px',
 
-  '@tablet': {
+  '@800': {
     width: '100vw',
+    justifyContent: 'center',
   },
 });
 
@@ -29,5 +30,9 @@ export const LinkToCreator = styled('a', Link, {
   '&:hover': {
     borderColor: '$primary',
     color: '$primary',
+  },
+
+  '@800': {
+    margin: '0 auto',
   },
 });

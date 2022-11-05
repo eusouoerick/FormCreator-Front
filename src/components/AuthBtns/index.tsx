@@ -2,7 +2,7 @@ import { useState } from 'react';
 import AuthModal from '../AuthModal';
 import * as S from './styles';
 
-const AuthBtns = ({ redirect }: { redirect?: string }) => {
+const AuthBtns = ({ redirect, hidden }: { redirect?: string; hidden?: true }) => {
   const [isModalOpen, setIsModalOpen] = useState<null | boolean>(null);
 
   const closeModal = () => {
@@ -11,7 +11,7 @@ const AuthBtns = ({ redirect }: { redirect?: string }) => {
 
   return (
     <>
-      <S.AuthArea style={{ gap: '10px' }}>
+      <S.AuthArea style={{ gap: '10px' }} hidden={hidden} >
         {typeof isModalOpen === 'boolean' && (
           <AuthModal page={isModalOpen} redirect={redirect} closeModal={closeModal} />
         )}

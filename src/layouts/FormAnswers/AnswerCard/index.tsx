@@ -28,7 +28,7 @@ const AnswerCard = ({ data, average }: AnswerProps) => {
           <div style={{ display: 'flex', gap: '10px' }}>
             <S.UserImage>
               <Image
-                src='/user.png'
+                src={data.author.image || '/user.png'}
                 layout='fill'
                 objectFit='cover'
                 objectPosition='bottom'

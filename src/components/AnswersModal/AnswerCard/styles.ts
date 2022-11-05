@@ -31,13 +31,12 @@ export const DivButtons = styled('div', {
 });
 
 export const ConfirmBtn = styled('button', {
-  width: '110px',
+  width: '90px',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
   border: 'none',
   borderRadius: '5px',
-  padding: '2px',
   fontSize: '$xSmall',
   color: '#fff',
   cursor: 'pointer',

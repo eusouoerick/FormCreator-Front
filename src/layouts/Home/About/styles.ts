@@ -2,7 +2,7 @@ import { styled } from 'src/styles/stitches.config';
 
 export const Container = styled('section', {
   background: '#fff',
-  height: '640px',
+  height: '600px',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -22,6 +22,10 @@ export const Image = styled('div', {
   background: '$background',
   borderRadius: '5px',
   overflow: 'hidden',
+
+  '@1000': {
+    display: 'none',
+  },
 });
 
 export const TextArea = styled('div', {

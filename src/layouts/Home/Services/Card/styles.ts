@@ -2,7 +2,8 @@ import { styled } from '@stitches/react';
 
 export const Container = styled('div', {
   position: 'relative',
-  width: '240px',
+  minWidth: '240px',
+  maxWidth: '240px',
   height: '300px',
   background: '#fff',
   boxShadow: '0 5px 10px rgba(0,0,0,15%)',

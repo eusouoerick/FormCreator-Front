@@ -6,11 +6,11 @@ const Services = () => {
   return (
     <S.Container id='service'>
       <h2>Services</h2>
-      <div style={{ display: 'flex', gap: '93px' }}>
+      <S.CardsArea>
         {data.map((item, i) => (
           <Card key={i} title={item.title} desc={item.desc} icon={item.icon} />
         ))}
-      </div>
+      </S.CardsArea>
     </S.Container>
   );
 };

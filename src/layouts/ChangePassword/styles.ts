@@ -1,13 +1,15 @@
 import { styled } from 'src/styles/stitches.config';
 import { FormCard } from 'src/components/Form';
+import Link from 'next/link';
 
-export const Logo = styled('span', {
+export const Logo = styled('a', Link, {
   position: 'absolute',
   top: '-100px',
   color: '$primary',
   fontSize: '$big',
   fontWeight: 'bold',
   letterSpacing: '0.105em',
+  textDecoration: 'none',
 });
 
 export const Container = styled('form', FormCard, {
@@ -21,6 +23,9 @@ export const Container = styled('form', FormCard, {
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
+  '@500': {
+    width: '100vw',
+  },
 });
 
 export const Title = styled('h1', {

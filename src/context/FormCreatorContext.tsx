@@ -22,12 +22,8 @@ type TypesFormCreator = {
   getRadioOption: (questionId: number, id: number) => { id: number; content: string };
   deleteRadioOption: (questionId: number, id: number) => void;
   updateRadioOption: (content: string, questionId: number, id: number) => void;
-  updateQuestion: (
-    e: any,
-    questionId: number,
-    field: 'title' | 'type' | 'value',
-    defaultValue: any
-  ) => void;
+  // prettier-ignore
+  updateQuestion: ( e: any, questionId: number, field: 'title' | 'type' | 'value', defaultValue: any ) => void;
 };
 
 export const FormCreatorContext = createContext({} as TypesFormCreator);

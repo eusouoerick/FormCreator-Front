@@ -47,11 +47,17 @@ const ShareForm = ({ urlParam, closeCard }: TypeShareForm) => {
         </ShareContainer>
 
         <LinkBox>
-          <div style={{ fontSize: '16px', marginLeft: '10px' }} translate='no'>
+          <div
+            className='link'
+            style={{ fontSize: '14px', marginLeft: '10px' }}
+            translate='no'
+          >
             {url}
           </div>
-          <BtnCopyLink onClick={copyToClipboard}>Copy</BtnCopyLink>
-          {showMessage && <CopyMessage>Copied</CopyMessage>}
+          <BtnCopyLink onClick={copyToClipboard}>
+            Copy url
+            {showMessage && <CopyMessage>Copied</CopyMessage>}
+          </BtnCopyLink>
         </LinkBox>
       </FormCard>
     </CardContainer>

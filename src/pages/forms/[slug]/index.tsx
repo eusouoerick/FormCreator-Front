@@ -8,7 +8,7 @@ const FormPage = () => {
   const { data, loading, error } = useGetFormData<Form>();
 
   if (loading) return <LoadingPage />;
-  if (error) return <h1>{error}</h1>;
+  if (error) return <LoadingPage />;
   return <FormByHash data={data} />;
 };
 

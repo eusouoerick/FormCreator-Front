@@ -1,18 +1,9 @@
-import Cookies from 'js-cookie';
-import { useRouter } from 'next/router';
 import { useEffect, useRef } from 'react';
-import { useUserContext } from 'src/context';
+import { useLogout } from 'src/hooks';
 
 const useNavModal = (closeModal: (cb: boolean) => void) => {
   const modalRef = useRef(null);
-  const { setUser } = useUserContext({ secret: true });
-  const router = useRouter();
-
-  const handleLogout = () => {
-    Cookies.remove('ACS_TOKEN');
-    setUser(undefined);
-    router.push('/');
-  };
+  const handleLogout = useLogout();
 
   useEffect(() => {
     const checkClick = (e: any) => {

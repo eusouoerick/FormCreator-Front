@@ -35,6 +35,11 @@ export const DivButtons = styled('div', {
   display: 'flex',
   alignItems: 'center',
   gap: '20px',
+
+  '@400': {
+    flexDirection: 'column',
+    gap: '30px'
+  },
 });
 
 export const DivSpaceBetween = styled('div', {

@@ -25,14 +25,14 @@ const FormByHash = ({ data }: { data: Form }) => {
             <p className='title'>{data.title}</p>
             <p className='desc'>{data.desc}</p>
           </div>
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <S.InfoArea>
             <span>
               {data.date
                 ? `Valid until : ${format(new Date(data.date), 'd MMM yyyy')}`
                 : 'No delivery time'}
             </span>
             {data.value ? <span>Value : {data.value}</span> : null}
-          </div>
+          </S.InfoArea>
         </S.Title>
 
         {data.userBlocked ? (

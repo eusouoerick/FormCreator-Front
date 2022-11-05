@@ -2,19 +2,15 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useUserContext } from 'src/context';
+import type { Navbar } from 'src/types';
 
 import AuthBtns from '../AuthBtns';
 import NavModal from './NavModal';
 import ShareModal from '../ShareModal';
+import Hamburguer from './Hamburguer';
 import * as S from './styles';
 
-type TypesNavbar = {
-  page?: 'questions' | 'answers' | 'dashboard' | 'creator' | 'edit';
-  blockUser?: number;
-  redirect?: string;
-};
-
-const Navbar = ({ page, redirect, blockUser = 0 }: TypesNavbar) => {
+const Navbar = ({ page, redirect, blockUser = 0 }: Navbar) => {
   const [toggleNavModal, setToggleNavModal] = useState<boolean>(false);
   const [shareModal, setShareModal] = useState(false);
   const { user } = useUserContext({});
@@ -25,6 +21,8 @@ const Navbar = ({ page, redirect, blockUser = 0 }: TypesNavbar) => {
       {shareModal && <ShareModal closeModal={setShareModal} slug={String(query.slug)} />}
 
       <S.Container>
+        <Hamburguer {...{ page, redirect, blockUser, setShareModal }} />
+
         <S.Logo translate='no'>LOGO</S.Logo>
 
         <S.Buttons>
@@ -60,14 +58,14 @@ const Navbar = ({ page, redirect, blockUser = 0 }: TypesNavbar) => {
           )}
         </S.Buttons>
 
-        {!user && <AuthBtns redirect={redirect} />}
+        {!user && <AuthBtns redirect={redirect} hidden />}
 
         {user && (
           <S.UserArea onClick={() => setToggleNavModal((state) => !state)}>
             {toggleNavModal && <NavModal closeModal={setToggleNavModal} />}
             <S.UserImage>
               <Image
-                src='/user.png'
+                src={user.image || '/user.png'}
                 layout='fixed'
                 objectPosition='bottom'
                 objectFit='cover'

@@ -4,6 +4,11 @@ export const ShareContainer = styled('div', {
   display: 'flex',
   justifyContent: 'center',
   gap: '10px',
+
+  '@400': {
+    overflowX: 'scroll',
+    justifyContent: 'flex-start',
+  },
 });
 
 export const LinkBox = styled('div', {
@@ -18,9 +23,20 @@ export const LinkBox = styled('div', {
   border: '$border',
   backgroundColor: 'transparent',
   borderRadius: '2px',
+
+  '@650': {
+    minWidth: 'unset',
+    width: '100%',
+    border: 'none',
+    justifyContent: 'center',
+    '.link': {
+      display: 'none',
+    },
+  },
 });
 
 export const BtnCopyLink = styled('button', {
+  position: 'relative',
   height: '100%',
   width: '100px',
   border: 'none',
@@ -66,4 +82,12 @@ export const BtnClose = styled('button', {
   color: '$textColorGrey',
   height: 'max-content',
   zIndex: '100',
+
+  '@500': {
+    top: '-22px',
+    right: '10px',
+    padding: '0 5px',
+    background: '$bgWhite',
+    borderRadius: '5px',
+  },
 });

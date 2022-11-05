@@ -19,6 +19,7 @@ export const ContentArea = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
+  padding: '0 10px',
 });
 
 export const Nav = styled('nav', {
@@ -43,6 +44,10 @@ export const UlNav = styled('ul', {
   },
   'li a:hover': {
     textDecoration: 'underline',
+  },
+
+  '@600': {
+    display: 'none',
   },
 });
 

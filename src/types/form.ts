@@ -34,6 +34,7 @@ export type UsersAnswers = {
   value: number | null;
   answers: Answers[];
   author: {
+    image: string;
     name: string;
     email: string;
   };

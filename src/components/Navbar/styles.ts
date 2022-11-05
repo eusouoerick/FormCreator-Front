@@ -25,6 +25,10 @@ export const Buttons = styled('div', {
   display: 'flex',
   alignItems: 'flex-end',
   gap: '30px',
+
+  '@800': {
+    display: 'none',
+  },
 });
 
 export const StyledLink = styled('a', Link, {
@@ -71,6 +75,10 @@ export const UserArea = styled('button', {
   '&:hover': {
     color: '$primary',
     borderColor: '$primary',
+  },
+
+  '@800': {
+    display: 'none',
   },
 });
 

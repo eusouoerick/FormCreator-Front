@@ -27,8 +27,16 @@ export const { styled, globalCss, getCssText, keyframes } = createStitches({
     },
   },
   media: {
-    tablet: '(max-width: 720px)',
-    desktop: '(min-width: 1280px)',
+    320: '(max-width: 320px)',
+    400: '(max-width: 400px)',
+    500: '(max-width: 500px)',
+    600: '(max-width: 600px)',
+    650: '(max-width: 650px)',
+    720: '(max-width: 720px)',
+    800: '(max-width: 800px)',
+    920: '(max-width: 920px)',
+    1000: '(max-width: 1000px)',
+    1280: '(min-width: 1280px)',
   },
 });
 
@@ -48,14 +56,5 @@ export const GlobalStyles = globalCss({
 
   'html, body': {
     background: '$background',
-  },
-});
-
-export const Rotation = keyframes({
-  '0%': {
-    transform: 'rotate(0deg)',
-  },
-  '100%': {
-    transform: 'rotate(360deg)',
   },
 });

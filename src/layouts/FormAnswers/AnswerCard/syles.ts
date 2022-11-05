@@ -23,6 +23,9 @@ export const Info = styled('div', {
     align: {
       end: {
         alignItems: 'flex-end',
+        '@500': {
+          display: 'none',
+        },
       },
     },
   },
@@ -45,7 +48,7 @@ export const Text = styled('span', {
 
 export const Button = styled('button', {
   display: 'block',
-  margin: '5px auto 0',
+  margin: '20px auto 0',
   border: 'none',
   background: 'none',
   color: '$primary',

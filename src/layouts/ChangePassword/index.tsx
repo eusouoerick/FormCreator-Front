@@ -16,9 +16,10 @@ const ChangePassword = () => {
     setisLoading(true);
     if (inputRef.current && inputRef.current.value) {
       const value = inputRef.current.value;
-      await AxiosApi().post(`/auth/change-password?token=${query.token}`, {
-        password: value,
-      })
+      await AxiosApi()
+        .post(`/auth/change-password?token=${query.token}`, {
+          password: value,
+        })
         .then(() => {
           setIsDisabled(true);
           toast.success('Success');
@@ -32,7 +33,9 @@ const ChangePassword = () => {
   return (
     <>
       <S.Container onSubmit={handleSubmit}>
-        <S.Logo translate='no'>LOGO</S.Logo>
+        <S.Logo href='/' translate='no'>
+          LOGO
+        </S.Logo>
         <S.Title>Type your new password</S.Title>
         <S.Input type='text' ref={inputRef} />
         <S.Button type='submit' disabled={isDisabled || isLoading}>

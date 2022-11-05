@@ -20,4 +20,8 @@ export const WindowBlur = styled('div', {
       },
     },
   },
+
+  '@650': {
+    padding: '20px 3px ',
+  },
 });

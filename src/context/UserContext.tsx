@@ -17,6 +17,7 @@ type User = {
   adm: boolean;
   email: string;
   name: string;
+  image: string;
 };
 
 type TypeUserContext = {
