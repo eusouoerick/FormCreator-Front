@@ -8,7 +8,7 @@
 
 ```js
 // Download the dependencies
-npm install
+npm install --force
 ```
 
 ```js
