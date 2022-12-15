@@ -29,9 +29,6 @@ const Footer = () => {
   return (
     <Container>
       <Text>by Erick Gabriel</Text>
-      <Text as='a' hover href='mailto:limerick.03@gmail.com'>
-        limerick.03@gmail.com
-      </Text>
     </Container>
   );
 };
